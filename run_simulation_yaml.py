@@ -19,6 +19,26 @@ hook = 'https://hooks.slack.com/services/XXXXXX'
 windows = "windows-cb"
 osx = "osx-cb"
 
+banner = '''
+   _____          __    __          
+  /     \   _____/  |__/  |______   
+ /  \ /  \_/ __ \   __\   __\__  \  
+/    Y    \  ___/|  |  |  |  / __ \_
+\____|__  /\___  >__|  |__| (____  /
+        \/     \/                \/ 
+'''
+
+banner2 = '''
+
+ __   __  _______  _______  _______  _______ 
+|  |_|  ||       ||       ||       ||   _   |
+|       ||    ___||_     _||_     _||  |_|  |
+|       ||   |___   |   |    |   |  |       |
+|       ||    ___|  |   |    |   |  |       |
+| ||_|| ||   |___   |   |    |   |  |   _   |
+|_|   |_||_______|  |___|    |___|  |__| |__|
+
+'''
 #logging = True
 
 from workers.vagranttasks import *
@@ -42,7 +62,6 @@ def run_scenario(ioc_filename):
 		print("### Running the Scenario ###")
 		#print ioc_filename
 		raw_iocs = yaml.load_all(open(ioc_filename,'r').read())
-
 
 		timenow = datetime.datetime.utcnow()
 
@@ -99,6 +118,7 @@ def run_uuid(ioc_filename):
 						#logstring = action +','+ rule_name +','+ windows
 						write_row(time_to_log, rule_name, action, mitre_phase, mitre_tech, windows)
 						#if you want to post to slack uncomment this and set the slack hook above
+
 						#json = {'text': "Automated Purple Team --> Simulation: {} | Action: {}  | Host: {} | Execution Time: {} UTC".format(rule_name,action,windows,datetime.datetime.utcnow())}
 						#post_to_slack(hook,json)
 						time.sleep(randint(2,30))
@@ -118,6 +138,7 @@ def run_uuid(ioc_filename):
 						vagrant = runcmd_nodb_osx.delay(action, rule_name, rule_uuid, osx)
 						write_row(time_to_log, rule_name, action, mitre_phase, mitre_tech, osx)
 						#if you want to post to slack uncomment this and set the slack hook above
+
 						#json = {'text': "Automated Purple Team --> Simulation: {} | Action: {}  | Host: {} | Execution Time: {} UTC".format(rule_name,action,osx,datetime.datetime.utcnow())}
 						#post_to_slack(hook,json)
 						time.sleep(randint(2,30))
@@ -134,6 +155,7 @@ def run_uuid(ioc_filename):
 
 
 def parse_yaml(ioc_filename):
+	print banner2
 	print("YAML FILE: {}".format(ioc_filename))
 	try:
 		raw_iocs = yaml.load_all(open(ioc_filename,'r').read())
