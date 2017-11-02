@@ -42,8 +42,7 @@ Running: cmd.exe /c wmic sysaccount list /format:list
 
 # Making actions
 The scenarios live in the MITRE folder sorted by MITRE ATT&CK phases and also in Adversarial_Simulation
-
-![actions example](docs/images/scenario.png)
+[actions example](docs/images/scenario.png)
 
 The most important parts are the OS field and the purple_actions
 
