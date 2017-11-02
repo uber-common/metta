@@ -1,0 +1,16 @@
+enabled: true
+meta:
+  author: redcanary
+  created: 2017-10-03
+  decorations:
+  - Purple Team
+  description: Persistence - OSX Cron Job
+  link: https://attackerkb.com/Unix/LinuxUnixBSD_Post_Exploitation
+  mitre_link: https://attack.mitre.org/wiki/Technique/T1168
+  mitre_attack_phase: Persistence
+  mitre_attack_technique: Cron Job
+  purple_actions:
+    1: echo \"* * * * * /tmp/evil.sh\" > /tmp/persistevil && crontab /tmp/persistevil
+os: osx
+name: Persistence osx cron job
+uuid: afddd80b-9d1b-463d-89c8-4ba2fbcbb5a4

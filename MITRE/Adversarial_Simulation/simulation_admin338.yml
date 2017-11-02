@@ -1,0 +1,24 @@
+enabled: true
+meta:
+  author: cg
+  created: 2017-10-10
+  decorations:
+  - Purple Team
+  description: Scenario using admin@338 TTPs
+  link: http://carnal0wnage.attackresearch.com
+  mitre_attack_phase: null
+  mitre_attack_technique: null
+  mitre_link: https://attack.mitre.org/wiki/Group/G0018
+  scenario: True
+  scenario_actions:
+    1: MITRE/Execution/execution_cmdline_interface_admin338.yml
+    2: MITRE/Discovery/discovery_system_info_discovery_admin338.yml
+    3: MITRE/Discovery/discovery_system_network_configuration_discovery_admin338.yml
+    4: MITRE/Discovery/discovery_account_discovery_admin338.yml
+    5: MITRE/Discovery/discovery_system_service_discovery_admin338.yml
+    6: MITRE/Discovery/discovery_permission_groups_discovery_admin338.yml
+    7: MITRE/Discovery/discovery_system_network_connections_discovery_admin338.yml
+    8: MITRE/Discovery/discovery_file_and_directory_discovery_admin338.yml
+    9: MITRE/Defense_Evasion/defenseevasion_masquerading_admin338.yml
+name: Scenario using admin@338 TTPs
+uuid: 2a1d562a-636d-4242-a606-96487d73efac

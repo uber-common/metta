@@ -1,0 +1,20 @@
+enabled: true
+meta:
+  author: cg
+  created: 2017-10-03
+  decorations:
+  - Purple Team
+  description: Disable windows protection services.
+  link: http://blogs.cisco.com/security/h1n1-technical-analysis-reveals-new-capabilities-part-2
+  mitre_link: https://attack.mitre.org/wiki/Technique/T1089
+  mitre_attack_phase: Defense Evasion
+  mitre_attack_technique: Disabling Security Tools
+  purple_actions:
+    1: cmd.exe /c net stop MpsSvc
+    2: cmd.exe /c net stop wscsvc
+    3: cmd.exe /c net stop WinDefend
+    4: cmd.exe /c net stop wuauserv
+    5: cmd.exe /c net stop carbonblack
+os: windows
+name: Disable Windows Security Services
+uuid: 6ef5be62-458c-4a9b-85e6-8942ea8aa1cb

@@ -1,0 +1,18 @@
+enabled: true
+meta:
+  author: cg 
+  created: 2017-10-03
+  decorations:
+  - Purple Team
+  description: Account Discovery commands run by admin@338 APT GROUP
+  link: https://attack.mitre.org/wiki/Group/G0018
+  link2: https://www.fireeye.com/blog/threat-research/2015/11/china-based-threat.html
+  mitre_link: https://attack.mitre.org/wiki/Technique/T1087
+  mitre_attack_phase: Discovery
+  mitre_attack_technique: Account Discovery
+  purple_actions:
+    1: cmd.exe /c net user >> C:\\Users\\AUTOMA~1\\AppData\\Local\\Temp\\download
+    2: cmd.exe /c net user /domain >> C:\\Users\\AUTOMA~1\\AppData\\Local\\Temp\\download
+os: windows
+name: Account Discovery commands run by admin@338 APT GROUP
+uuid: 82c8914b-8741-493d-9a59-ada75d6dd7c1

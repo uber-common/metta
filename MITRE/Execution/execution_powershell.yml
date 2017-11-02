@@ -1,0 +1,21 @@
+enabled: true
+meta:
+  author: cg
+  created: 2017-10-02
+  decorations:
+  - Purple Team
+  description: Powershell exection examples.
+  link: https://blog.netspi.com/15-ways-to-bypass-the-powershell-execution-policy/
+  mitre_link: https://attack.mitre.org/wiki/Technique/T1086
+  mitre_attack_phase: Execution
+  mitre_attack_technique: Powershell
+  purple_actions:
+    1: cmd.exe /c powershell Get-NetIPConfiguration
+    2: cmd.exe /c powershell -window hidden Get-NetIPConfiguration
+    3: cmd.exe /c powershell -window hidden -encodedcommand RwBlAHQALQBOAGUAdABJAFAAQwBvAG4AZgBpAGcAdQByAGEAdABpAG8AbgA=
+    4: cmd.exe /c powershell Write-Host \"Doing Evil stuff here\"
+    5: cmd.exe /c powershell -window hidden -e VwByAGkAdABlAC0ASABvAHMAdAAgACIARABvAGkAbgBnACAARQB2AGkAbAAgAHMAdAB1AGYAZgAgAGgAZQByAGUAIgA=
+    6: cmd.exe /c powershell -window hidden -enc VwByAGkAdABlAC0ASABvAHMAdAAgACIARABvAGkAbgBnACAARQB2AGkAbAAgAHMAdAB1AGYAZgAgAGgAZQByAGUAIgA=
+os: windows
+name: Powershell Execution Examples
+uuid: 5026f9f5-45b4-403f-8d54-d387b3517bdb

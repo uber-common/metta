@@ -1,0 +1,21 @@
+enabled: true
+meta:
+  author: cg 
+  created: 2017-10-03
+  decorations:
+  - Purple Team
+  description: Command Line Interface commands run by admin@338 APT GROUP
+  link: https://attack.mitre.org/wiki/Group/G0018
+  link2: https://www.fireeye.com/blog/threat-research/2015/11/china-based-threat.html
+  mitre_link: https://attack.mitre.org/wiki/Technique/T1059
+  mitre_attack_phase: Execution
+  mitre_attack_technique: Command-Line Interface
+  purple_actions:
+    1: cmd.exe /c echo d76261ba3b624933a6ebb5dd73758db4 > C:\\Users\\AUTOMA~1\\AppData\\Local\\Temp\\time.exe
+    2: cmd.exe /c echo d76261ba3b624933a6ebb5dd73758db4 > C:\\Users\\AUTOMA~1\\AppData\\Local\\Temp\\WmiApCom
+    3: cmd.exe /c echo 79b68cdd0044edd4fbf8067b22878644 > C:\\Users\\AUTOMA~1\\AppData\\Local\\Temp\\WmiApCom.bat
+    4: cmd.exe /c type C:\\Users\\AUTOMA~1\\AppData\\Local\\Temp\\WmiApCom.bat
+    5: cmd.exe /c echo \"backdoor commands\" > C:\\Users\\AUTOMA~1\\AppData\\Local\\Temp\\computername_upload.bat
+os: windows
+name: Command Line Interface commands run by admin@338 APT GROUP
+uuid: c36cfb13-0859-407b-b9ea-19120723c336

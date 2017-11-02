@@ -1,0 +1,21 @@
+enabled: true
+meta:
+  author: cg / redcanary
+  created: 2017-10-03
+  decorations:
+  - Purple Team
+  description: search for passwords in Linux bash_history
+  link: https://attackerkb.com/Unix/LinuxUnixBSD_Post_Exploitation
+  mitre_link: https://attack.mitre.org/wiki/Technique/T1139
+  mitre_attack_phase: Credential Access
+  mitre_attack_technique: Bash History
+  purple_actions:
+    1: cat ~/.bash_history | grep -e \'-p \' -e \'pass\' -e \'ssh\' > loot_bash.txt
+    2: cat loot_bash.txt
+    3: cat ~/.sh_history | grep -e \'-p \' -e \'pass\' -e \'ssh\' > loot_sh.txt
+    4: cat loot_sh.txt
+    5: cat ~/.zsh_history | grep -e \'-p \' -e \'pass\' -e \'ssh\' > loot_zsh.txt
+    6: cat loot_zsh.txt
+os: linux
+name: search for passwords in Linux bash_history
+uuid: 4c3692cf-2349-4f52-bddb-28401b7d815e

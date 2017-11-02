@@ -1,0 +1,29 @@
+enabled: true
+meta:
+  author: cg 
+  created: 2017-10-03
+  decorations:
+  - Purple Team
+  description: account discovery commands via net, dsquery, wmic (note dsquery specific to dsquery location on vagrant)
+  link: http://carnal0wnage.attackresearch.com
+  mitre_link: https://attack.mitre.org/wiki/Technique/T1087
+  mitre_attack_phase: Discovery
+  mitre_attack_technique: Account Discovery
+  purple_actions:
+    1: cmd.exe /c net group \"Domain Admins\" /domain
+    2: cmd.exe /c net user /add
+    3: cmd.exe /c net user /domain
+    4: cmd.exe /c net localgroup administrators
+    5: cmd.exe /c net share
+    6: cmd.exe /c net use
+    7: cmd.exe /c net accounts
+    8: cmd.exe /c net config workstation
+    9: cmd.exe /c C:\\tools\win32bins\\activedirectory\\dsquery server
+    10: cmd.exe /c C:\\tools\win32bins\\activedirectory\\dsquery user -name smith* | C:\\tools\win32bins\\activedirectory\\dsget user -dn -desc
+    11: cmd.exe /c wmic useraccount list /format:list
+    12: cmd.exe /c wmic ntdomain
+    13: cmd.exe /c wmic group list /format:list
+    14: cmd.exe /c wmic sysaccount list /format:list
+os: windows
+name: account discovery commands via net, dsquery, wmic
+uuid: cc6b4a6c-ca57-4458-a372-7cef78422d76

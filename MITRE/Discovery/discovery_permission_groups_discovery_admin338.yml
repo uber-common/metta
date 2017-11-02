@@ -1,0 +1,17 @@
+enabled: true
+meta:
+  author: cg 
+  created: 2017-10-03
+  decorations:
+  - Purple Team
+  description: Permission Groups Discovery commands run by admin@338 APT GROUP
+  link: https://attack.mitre.org/wiki/Group/G0018
+  link2: https://www.fireeye.com/blog/threat-research/2015/11/china-based-threat.html
+  mitre_link: https://attack.mitre.org/wiki/Technique/T1069
+  mitre_attack_phase: Discovery
+  mitre_attack_technique: Permission Groups Discovery
+  purple_actions:
+    1: cmd.exe /c net localgroup administrators >> C:\\Users\\AUTOMA~1\\AppData\\Local\\Temp\\download
+os: windows
+name: Permission Groups Discovery commands run by admin@338 APT GROUP
+uuid: b8450d3c-7385-4b82-a262-1ae9d50195d4

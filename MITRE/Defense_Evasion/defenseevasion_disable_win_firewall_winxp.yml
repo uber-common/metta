@@ -1,0 +1,16 @@
+enabled: true
+meta:
+  author: cg
+  created: 2017-10-03
+  decorations:
+  - Purple Team
+  description: Disable windows firewall winxp.
+  link: https://attack.mitre.org/wiki/Technique/T1089
+  mitre_link: https://attack.mitre.org/wiki/Technique/T1089
+  mitre_attack_phase: Defense Evasion
+  mitre_attack_technique: Disabling Security Tools
+  purple_actions:
+    1: cmd.exe /c netsh firewall set opmode mode=DISABLE
+os: windows
+name: Disable Windows Firewall XP
+uuid: 19ef9495-c259-4ea8-a4e3-717d396084bb

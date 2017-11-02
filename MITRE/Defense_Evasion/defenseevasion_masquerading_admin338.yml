@@ -1,0 +1,18 @@
+enabled: true
+meta:
+  author: cg 
+  created: 2017-10-10
+  decorations:
+  - Purple Team
+  description: Masquerading commands run by admin@338 APT GROUP
+  link: https://attack.mitre.org/wiki/Group/G0018
+  link2: https://www.fireeye.com/blog/threat-research/2015/11/china-based-threat.html
+  mitre_link: https://attack.mitre.org/wiki/Technique/T1036
+  mitre_attack_phase: Defense Evasion
+  mitre_attack_technique: Masquerading
+  purple_actions:
+    1: cmd.exe /c echo \"BUBBLEWRAP (also known as Backdoor.APT.FakeWinHTTPHelper)\"  > C:\\Users\\AUTOMA~1\\AppData\\Local\\Temp\\upload
+    2: cmd.exe /c ren C:\\Users\\AUTOMA~1\\AppData\\Local\\Temp\\upload audiodg.exe
+os: windows
+name: Masquerading commands run by admin@338 APT GROUP
+uuid: 01db4af4-f274-4feb-b6a8-7f058311bc0e

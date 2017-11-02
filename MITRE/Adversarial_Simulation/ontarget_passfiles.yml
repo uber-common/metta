@@ -1,0 +1,23 @@
+enabled: true
+meta:
+  author: cg
+  created: 2017-06-01
+  decorations:
+  - Purple Team
+  description: On Target Recon for file with passwords Atack Simulation.
+  link: https://carnal0wnage.attackresearch.com
+  mitre_attack_phase: Discovery
+  mitre_attack_technique: Account Discovery
+  purple_actions:
+    1: cmd.exe /c dir c:\*password* /s
+    2: cmd.exe /c dir c:\*pass* /s
+    3: cmd.exe /c dir c:\*.pcf /s
+    4: cmd.exe /c dir c:\*finance* /s
+    5: cmd.exe /c dir c:\*.key* /s
+    6: cmd.exe /c dir c:\*.ica /s
+    7: cmd.exe /c dir c:\*.gpg* /s
+    8: cmd.exe /c dir c:\*.config* /s
+    9: cmd.exe /c dir c:\*.conf* /s
+os: windows
+name: On-target Recon For Files With Passwords Simulation
+uuid: 017df153-470e-43d6-ef54-24c6b7cf62c4

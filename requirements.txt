@@ -1,0 +1,5 @@
+celery
+requests
+redis
+pyyaml
+uuid

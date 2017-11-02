@@ -1,0 +1,16 @@
+enabled: true
+meta:
+  author: cg
+  created: 2017-10-03
+  decorations:
+  - Purple Team
+  description: Persistence - Pandemic implant reg add
+  link: https://github.com/Neo23x0/sigma/blob/master/rules/apt/apt_pandemic.yml
+  mitre_link: https://attack.mitre.org/wiki/Technique/T1060
+  mitre_attack_phase: Persistence
+  mitre_attack_technique: Registry Run Keys / Start Folder
+  purple_actions:
+    1: cmd.exe /c reg add HKLM\SYSTEM\CurrentControlSet\Services\Null /v Instance
+os: windows
+name: Persistence Reg add Pandemic implant reg key
+uuid: 71299ce4-356f-4493-8a0c-1786d70dea54

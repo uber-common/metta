@@ -1,0 +1,17 @@
+enabled: true
+meta:
+  author: cg
+  created: 2017-10-03
+  decorations:
+  - Purple Team
+  description: On Target Recon Credential Dumping commands with builtin windows tools.
+  link: https://carnal0wnage.attackresearch.com
+  mitre_link: https://attack.mitre.org/wiki/Technique/T1003
+  mitre_attack_phase: Credential Access
+  mitre_attack_technique: Credential Dumping
+  purple_actions:
+    1: cmd.exe /c setspn.exe -t corp -q */*
+    2: cmd.exe /c vssadmin.exe list shadows
+os: windows
+name: On-target Recon For Password With Builtin Windows Tools
+uuid: 37f4183e-c74a-440c-b7ea-f4eda206cb2f

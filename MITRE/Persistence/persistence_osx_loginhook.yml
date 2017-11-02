@@ -1,0 +1,16 @@
+enabled: true
+meta:
+  author: cg 
+  created: 2017-10-03
+  decorations:
+  - Purple Team
+  description: creating a login hook for OSX via the command line
+  link: https://attackerkb.com/OSX/persistence
+  mitre_link: https://attack.mitre.org/wiki/Technique/T1037
+  mitre_attack_phase: Persistence
+  mitre_attack_technique: Logon Scripts
+  purple_actions:
+    1: defaults write com.apple.loginwindow LoginHook /usr/bin/hook.sh
+os: osx
+name: Create login hook for OSX via the command line
+uuid: 3d309332-44d4-4c47-8657-8198f0586b19

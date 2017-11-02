@@ -1,0 +1,18 @@
+enabled: true
+meta:
+  author: cg 
+  created: 2017-10-03
+  decorations:
+  - Purple Team
+  description: System Service Discovery commands run by admin@338 APT GROUP
+  link: https://attack.mitre.org/wiki/Group/G0018
+  link2: https://www.fireeye.com/blog/threat-research/2015/11/china-based-threat.html
+  mitre_link: https://attack.mitre.org/wiki/Technique/T1007
+  mitre_attack_phase: Discovery
+  mitre_attack_technique: System Service Discovery 
+  purple_actions:
+    1: cmd.exe /c net start  >> C:\\Users\\AUTOMA~1\\AppData\\Local\\Temp\\download
+    2: cmd.exe /c type C:\\Users\\AUTOMA~1\\AppData\\Local\\Temp\\download
+os: windows
+name: System Service Discovery commands run by admin@338 APT GROUP
+uuid: 4be5ad21-d34a-44af-9642-370735d349a8

@@ -1,0 +1,17 @@
+enabled: true
+meta:
+  author: cg 
+  created: 2017-10-03
+  decorations:
+  - Purple Team
+  description: System Network Configuration Discovery commands run by admin@338 APT GROUP
+  link: https://attack.mitre.org/wiki/Group/G0018
+  link2: https://www.fireeye.com/blog/threat-research/2015/11/china-based-threat.html
+  mitre_link: https://attack.mitre.org/wiki/Technique/T1016
+  mitre_attack_phase: Discovery
+  mitre_attack_technique: System Network Configuration Discovery 
+  purple_actions:
+    1: cmd.exe /c ipconfig /all >> C:\\Users\\AUTOMA~1\\AppData\\Local\\Temp\\download
+os: windows
+name: System Network Configuration Discovery commands run by admin@338 APT GROUP
+uuid: 9b0ba050-fa10-4871-ab69-11b16879f45e

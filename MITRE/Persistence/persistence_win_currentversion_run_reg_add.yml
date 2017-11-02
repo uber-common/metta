@@ -1,0 +1,17 @@
+enabled: true
+meta:
+  author: cg
+  created: 2017-10-03
+  decorations:
+  - Purple Team
+  description: Persistence - CurrentVersion run key
+  link: https://www.windowscentral.com/how-edit-registry-using-command-prompt-windows-10
+  mitre_link: https://attack.mitre.org/wiki/Technique/T1060
+  mitre_attack_phase: Persistence
+  mitre_attack_technique: Registry Run Keys / Start Folder
+  purple_actions:
+    1: cmd.exe /c reg add HKCU\SOFTWARE\Microsoft\Windows\CurrentVersion\Run /v JUSCHED /d C:\windows\temp\evil.exe /f
+    2: cmd.exe /c reg query HKCU\SOFTWARE\Microsoft\Windows\CurrentVersion\Run /v JUSCHED
+os: windows
+name: Persistence Reg Add CurrentVersion Run Key
+uuid: 499540ec-d02a-4c5b-b2e6-505b0401c669

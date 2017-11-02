@@ -1,0 +1,26 @@
+enabled: true
+meta:
+  author: cg
+  created: 2017-06-01
+  decorations:
+  - Purple Team
+  description: On Target Recon Atack Simulation.
+  link: https://carnal0wnage.attackresearch.com
+  mitre_attack_phase: Discovery
+  mitre_attack_technique: Account Discovery
+  purple_actions:
+    1: cmd.exe /c net user
+    2: cmd.exe /c net user /domain
+    3: cmd.exe /c net localgroup administrators
+    4: cmd.exe /c net view
+    5: cmd.exe /c net view /domain
+    6: cmd.exe /c net groups \"Domain Admins\" /domain
+    7: cmd.exe /c net use
+    8: cmd.exe /c net share
+    9: cmd.exe /c ipconfig /all
+    10: cmd.exe /c tasklist /v
+    11: cmd.exe /c gpresult /z
+    12: cmd.exe /c nltest /dclist:corp
+os: windows
+name: On-target Recon Simulation
+uuid: 017df153-470e-43d6-8e91-24c6b7cf62c4

@@ -1,0 +1,18 @@
+enabled: true
+meta:
+  author: cg
+  created: 2017-10-10
+  decorations:
+  - Purple Team
+  description: Scenario Examples
+  link: http://carnal0wnage.attackresearch.com
+  mitre_attack_phase: null
+  mitre_attack_technique: null
+  mitre_link: null
+  scenario: True
+  scenario_actions:
+    1: MITRE/Discovery/discovery_account.yaml
+    2: MITRE/Credential_Access/credaccess_win_creddump.yml
+    3: MITRE/Execution/execution_regsvr32.yaml
+name: Scenario examples
+uuid: 7da758ce-7c80-4169-a6ed-27abf3e5978f

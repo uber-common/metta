@@ -1,0 +1,21 @@
+enabled: true
+meta:
+  author: cg
+  created: 2017-10-02
+  decorations:
+  - Purple Team
+  description: bitsadmin download a file.
+  link: http://0xthem.blogspot.com/2014/03/t-emporal-persistence-with-and-schtasks.html
+  mitre_link: https://attack.mitre.org/wiki/Technique/T1011
+  mitre_attack_phase: Exfiltration
+  mitre_attack_technique: Exfiltration Over Other Network Medium
+  purple_actions:
+    1: bitsadmin /transfer systemrepair /download /priority normal http://127.0.0.1/file.txt c:\windows\temp\file.txt
+os: windows
+name: Bitsadmin Download/Exfil Examples
+uuid: a2d2b1f6-e1df-43da-8b78-6b4b223dc6cd
+
+
+
+
+

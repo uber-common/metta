@@ -1,0 +1,31 @@
+enabled: true
+meta:
+  author: cg
+  created: 2017-06-01
+  decorations:
+  - Purple Team
+  description: On Target Initial Investigation Atack Simulation .
+  link: http://blog.jpcert.or.jp/2016/01/windows-commands-abused-by-attackers.html
+  mitre_attack_phase: Discovery
+  mitre_attack_technique: System Information Discovery
+  purple_actions:
+    1: cmd.exe /c tasklist /s /v
+    2: cmd.exe /c ver
+    3: cmd.exe /c ipconfig /all
+    4: cmd.exe /c set
+    5: cmd.exe /c systeminfo
+    6: cmd.exe /c net time
+    7: cmd.exe /c netstat -ano
+    8: cmd.exe /c whoami /all
+    9: cmd.exe /c net start
+    10: cmd.exe /c qprocess
+    11: cmd.exe /c query user
+    12: cmd.exe /c query session console
+    13: cmd.exe /c query session services
+    14: cmd.exe /c nslookup
+    15: cmd.exe /c fsutil fsinfo drives
+    16: cmd.exe /c time /t
+    17: cmd.exe /c tasklist /m /svc
+os: windows
+name: On-target Recon Simulation
+uuid: abc8f153-871-43d6-8e91-24c6b7cf62c4
