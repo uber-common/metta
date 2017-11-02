@@ -1,10 +1,10 @@
 # Installation
-From Ubuntu Desktop
+Ubuntu Desktop
 
 ```
 sudo apt-get update
 sudo apt-get install build-essential
-sudo apt-get install redis-server git python-pip screen python-yaml virtualbox
+sudo apt-get install redis-server git python-pip screen python-yaml
 ```
 
 
@@ -13,11 +13,11 @@ ref: http://docs.python-guide.org/en/latest/dev/virtualenvs/
 ```
 pip install --user pipenv
 
-git clone adversarial-simulation-automation
-cd adversarial-simulation-automation
+git clone metta
+cd metta
 
-virtualenv simulation-automation
-source simulation-automation/bin/activate
+virtualenv metta
+source metta/bin/activate
 pip install -r requirements.txt
 
 ```
@@ -44,16 +44,15 @@ vagrant plugin install vagrant-winrm
 
 Set up your vagrants
 
-ex
-```
-vagrant init opentable/win-7-professional-amd64-nocm --box-version 1.0.0
-vagrant up
-```
 * Set passwords and enable winrm on the windows host so the winrm-* plugins will work
  * ref: https://www.vagrantup.com/docs/boxes/base.html (windows section)
- * vagrant winrm windows-cb -c whoami  should work :-) 
+ * ```vagrant winrm windows-vagrant -c whoami ```     -- should work :-) 
 
 * install any instrumentation you need to install
+
+```
+vagrant up
+```
 
 >>>
 ** IMPORTANT  update workers/vagranttasks.py to point to the virtualbox/vagrant boxes location
@@ -63,17 +62,28 @@ vagrant up
 
 # Cloud && Vagrant
 
+rackspace
+
 https://github.com/mitchellh/vagrant-rackspace
 
-see the vagrant folder /aws/ for Vagrantfile and user_data.txt
+AWS
+
 https://github.com/mitchellh/vagrant-aws
+see the vagrant folder /aws/ for Vagrantfile and user_data.txt
+
 * needs vagrant plugin install inifile
 * needs vagrant plugin install vagrant-aws
 * needs vagrant plugin install vagrant-winrm
 
 ref: https://gist.github.com/mkubenka/33b542cbd82614fe7f8b
 
+Linode
+
 https://github.com/displague/vagrant-linode
+
+Others
+
+https://www.vagrantup.com/docs/providers/
 
 ## Confirm redis is running (Run this is its own terminal tab)
 ```
@@ -111,7 +121,7 @@ user@ubuntu:~/adversarial-simulation-automation$ redis-server
 # Start the celery shell script (Run this is its own terminal tab)
 
 ```
-(simulation-automation) user@ubuntu:~/adversarial-simulation-automation$ ./start_vagrant_celery.sh 
+(metta) user@ubuntu:~/metta$ ./start_vagrant_celery.sh 
 [2017-10-02 08:43:30,368: DEBUG/MainProcess] | Worker: Preparing bootsteps.
 [2017-10-02 08:43:30,369: DEBUG/MainProcess] | Worker: Building graph...
 [2017-10-02 08:43:30,369: DEBUG/MainProcess] | Worker: New boot order: {StateDB, Beat, Timer, Hub, Pool, Autoscaler, Consumer}
