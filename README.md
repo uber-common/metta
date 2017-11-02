@@ -2,7 +2,7 @@
 
 Metta is an information security preparedness tool.  
 
-This project uses Redis/Celery, python, and vagrant with virtualbox to do adversarial simulation.  This allows you to test (mostly) your host based instrumentaion but may also allow you to test any network based detection and controls depending on how you set up your vagrants.
+This project uses Redis/Celery, python, and vagrant with virtualbox to do adversarial simulation.  This allows you to test (mostly) your host based instrumentation but may also allow you to test any network based detection and controls depending on how you set up your vagrants.
 
 The project parses yaml files with actions and uses celery to queue these actions up and run them one at a time without interaction.
 
@@ -47,6 +47,7 @@ The scenarios live in the MITRE folder sorted by MITRE ATT&CK phases and also in
 The most important parts are the OS field and the purple_actions
 
 os: will tell the tool which vagrant to send the command to, obviously *nix commands on windows wont work out so well
+
 purple_actions: an array of commands to run sequentially
 
 # Making scenarios
@@ -60,7 +61,7 @@ The code will be looking for a  scenario: True field and scenario_actions list. 
 
 # Gotchas
 
-The tool takes the string from puple_actions and encaspulates it in quotes. Therefor you need to escape any other quotes, ticks, weird shell characters in your command.
+The tool takes the string from puple_actions and encapsulates it in quotes. Therefor you need to escape any other quotes, ticks, weird shell characters in your command.
 
 Use the output of the vagrant/celery piece to make sure things are working like they should
 
