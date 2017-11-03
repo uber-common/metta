@@ -89,7 +89,7 @@ https://www.vagrantup.com/docs/providers/
 ```
 netstat -pant | grep 6379
 
-user@ubuntu:~/adversarial-simulation-automation$ redis-server 
+user@ubuntu:~/metta$ redis-server 
 2867:C 02 Oct 08:20:34.699 # Warning: no config file specified, using the default config. In order to specify a config file use redis-server /path/to/redis.conf
 2867:M 02 Oct 08:20:34.699 * Increased maximum number of open files to 10032 (it was originally set to 1024).
                 _._                                                  
