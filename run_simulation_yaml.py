@@ -18,6 +18,7 @@ hook = 'https://hooks.slack.com/services/XXXXXX'
 
 windows = "windows-cb"
 osx = "osx-cb"
+linux = "todo"
 
 banner = '''
    _____          __    __          
@@ -115,7 +116,6 @@ def run_uuid(ioc_filename):
 					time_to_log = date+" "+hourminsec
 					try:
 						vagrant = runcmd_nodb_win.delay(action, rule_name, rule_uuid, windows)
-						#logstring = action +','+ rule_name +','+ windows
 						write_row(time_to_log, rule_name, action, mitre_phase, mitre_tech, windows)
 						#if you want to post to slack uncomment this and set the slack hook above
 
@@ -145,6 +145,27 @@ def run_uuid(ioc_filename):
 						
 					except Exception as e:
 						print(e)
+
+			elif rule_os == "linux":
+				print "OS matched Linux...sending to the Linux vagrant"
+				for action in purple_actions:
+					print("Running: {}".format(action))
+					timenow = datetime.datetime.utcnow()
+					date = timenow.strftime('%Y-%m-%d')
+					hourminsec = timenow.strftime('%H:%M:%S')
+					time_to_log = date+" "+hourminsec
+					try:
+						vagrant = runcmd_nodb_linux.delay(action, rule_name, rule_uuid, linux)
+						write_row(time_to_log, rule_name, action, mitre_phase, mitre_tech, linux)
+						#if you want to post to slack uncomment this and set the slack hook above
+
+						#json = {'text': "Automated Purple Team --> Simulation: {} | Action: {}  | Host: {} | Execution Time: {} UTC".format(rule_name,action,osx,datetime.datetime.utcnow())}
+						#post_to_slack(hook,json)
+						time.sleep(randint(2,30))
+						
+					except Exception as e:
+						print(e)
+
 			else:
 				print "I received an unknown OS"
 	except KeyboardInterrupt:
