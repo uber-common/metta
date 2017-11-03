@@ -1,0 +1,16 @@
+enabled: true
+meta:
+  author: cg
+  created: 2017-11-04
+  decorations:
+  - Purple Team
+  description: Actions example yaml file
+  link: https://carnal0wnage.attackresearch.com
+  mitre_attack_phase: Discovery
+  mitre_attack_technique: Account Discovery
+  purple_actions:
+    1: cmd.exe /c net user
+    2: cmd.exe /c net user /domain
+os: windows
+name: Actions Example
+uuid: 66a63b5f-268f-42cc-9e67-1518a4b01326
