@@ -1,0 +1,16 @@
+enabled: true
+meta:
+  author: redcanary
+  created: 2017-11-05
+  decorations:
+  - Purple Team
+  description: Indicator Removal on Host with wevtutil.
+  link: https://technet.microsoft.com/en-us/library/cc722318(v=ws.11).aspx
+  mitre_link: https://attack.mitre.org/wiki/Technique/T1070
+  mitre_attack_phase: Defense Evasion
+  mitre_attack_technique: Indicator Removal on Host
+  purple_actions:
+    1: cmd.exe /c wevtutil cl System
+os: windows
+name: Indicator Removal on Host with wevtutil.
+uuid: 67a3b423-59b2-4ff8-89f4-eba0b13fa9cc

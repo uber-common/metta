@@ -1,0 +1,17 @@
+enabled: true
+meta:
+  author: redcanary
+  created: 2017-11-05
+  decorations:
+  - Purple Team
+  description:  Flame can create backdoor accounts with the login "HelpAssistant" with the Limbo module.
+  link: https://attack.mitre.org/wiki/Software/S0143
+  mitre_link: https://attack.mitre.org/wiki/Technique/T1136
+  mitre_attack_phase: Credential Access
+  mitre_attack_technique: Create Account
+  purple_actions:
+    1: cmd.exe /c net user /add HelpAssistant Pwndiddy1
+    4: cmd.exe /c net user HelpAssistant /delete
+os: windows
+name: Flame can create backdoor accounts with the login "HelpAssistant".
+uuid: 6cef6e3d-13e5-45a3-a28f-d87f87dc8fd7

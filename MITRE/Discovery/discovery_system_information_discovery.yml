@@ -1,0 +1,21 @@
+enabled: true
+meta:
+  author: cg / redcanary
+  created: 2017-11-05
+  decorations:
+  - Purple Team
+  description: Remote System Discovery commandline
+  link: http://pwnwiki.io/#!index.md
+  mitre_link: https://attack.mitre.org/wiki/Technique/T1082
+  mitre_attack_phase: Discovery
+  mitre_attack_technique: System Information Discovery
+  purple_actions:
+    1: cmd.exe /c gpresult -r
+    2: cmd.exe /c gpresult -z
+    3: cmd.exe /c reg query HKLM\\SYSTEM\\CurrentControlSet\\Services\\Disk\\Enum
+    4: cmd.exe /c systeminfo
+os: windows
+name: Remote System Discovery commandline
+uuid: f53c0ee6-cc64-41c6-a13a-802223e5d6f1
+
+

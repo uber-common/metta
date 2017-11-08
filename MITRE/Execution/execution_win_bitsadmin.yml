@@ -1,6 +1,6 @@
-enabled: false
+enabled: true
 meta:
-  author: redcanary
+  author: redcanary / cg
   created: 2017-10-05
   decorations:
   - Purple Team

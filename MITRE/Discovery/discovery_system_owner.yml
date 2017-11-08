@@ -1,0 +1,22 @@
+enabled: true
+meta:
+  author: cg / redcanary
+  created: 2017-11-05
+  decorations:
+  - Purple Team
+  description: System Owner-User Discovery
+  link: http://pwnwiki.io/#!index.md
+  mitre_link: https://attack.mitre.org/wiki/Technique/T1018
+  mitre_attack_phase: Discovery
+  mitre_attack_technique: System Owner-User Discovery
+  purple_actions:
+    1: cmd.exe /c whoami
+    2: cmd.exe /c wmic useraccount get /ALL
+    3: cmd.exe /c quser /SERVER:localhost
+    4: cmd.exe /c qwinsta.exe /server:localhost
+    5: cmd.exe /c set 
+    6: cmd.exe /c tasklist /v
+    7: cmd.exe /c net user administrator
+os: windows
+name: System Owner-User Discovery
+uuid: b3e0efce-a329-4756-a07c-03eb449000d4

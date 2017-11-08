@@ -1,0 +1,18 @@
+enabled: true
+meta:
+  author: cg / redcanary
+  created: 2017-11-05
+  decorations:
+  - Purple Team
+  description: Remote System Discovery commandline
+  link: http://pwnwiki.io/#!index.md
+  mitre_link: https://attack.mitre.org/wiki/Technique/T1018
+  mitre_attack_phase: Discovery
+  mitre_attack_technique: Remote System Discovery
+  purple_actions:
+    1: cmd.exe /c net view
+    2: cmd.exe /c net view /domain
+    3: cmd.exe /c arp -a
+os: windows
+name: Remote System Discovery commandline
+uuid: 668a3ace-d82d-4100-9878-af92a7dc300a

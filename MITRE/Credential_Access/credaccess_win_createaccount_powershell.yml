@@ -1,0 +1,17 @@
+enabled: true
+meta:
+  author: redcanary
+  created: 2017-11-05
+  decorations:
+  - Purple Team
+  description: Windows commandline new user creation with powershell.  Requires powershell 5.1
+  link: https://mcpmag.com/articles/2015/05/07/local-user-accounts-with-powershell.aspx
+  mitre_link: https://attack.mitre.org/wiki/Technique/T1136
+  mitre_attack_phase: Credential Access
+  mitre_attack_technique: Create Account
+  purple_actions:
+    1: cmd.exe /c powershell.exe New-LocalUser -FullName 'Jack Frost' -Name 'Jackfro' -Password 'Pwndiddy1' -Description 'Pwnage account'
+    2: cmd.exe /c net user jackfro /delete
+os: windows
+name: Windows commandline new user creation with powershell.
+uuid: 84d1dd8a-362e-475e-858e-d3c552a84c43

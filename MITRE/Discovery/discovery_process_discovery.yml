@@ -1,0 +1,17 @@
+enabled: true
+meta:
+  author: cg 
+  created: 2017-11-07
+  decorations:
+  - Purple Team
+  description: Process Discovery
+  link: http://pwnwiki.io/#!index.md
+  mitre_link: https://attack.mitre.org/wiki/Technique/T1057
+  mitre_attack_phase: Discovery
+  mitre_attack_technique: Process Discovery
+  purple_actions:
+    1: cmd.exe /c wmic process list /format:list
+    2: cmd.exe /c tasklist /v
+os: windows
+name: Process Discovery
+uuid: 01dfdaa3-0e14-467d-9bc8-e0610b9e9f89

@@ -1,0 +1,19 @@
+enabled: true
+meta:
+  author: redcanary
+  created: 2017-11-05
+  decorations:
+  - Purple Team
+  description: Windows commandline new user creation.
+  link: http://pwnwiki.io/#!index.md
+  mitre_link: https://attack.mitre.org/wiki/Technique/T1136
+  mitre_attack_phase: Credential Access
+  mitre_attack_technique: Create Account
+  purple_actions:
+    1: cmd.exe /c net user /add Jack Pwndiddy1
+    2: cmd.exe /c net localgroup administrators jack /add
+    3: cmd.exe /c net user newdomainuser thepassword \domain
+    4: cmd.exe /c net user Jack /delete
+os: windows
+name: Windows commandline new user creation.
+uuid: fdbd47c5-740f-4d16-9741-f0340c657b3a

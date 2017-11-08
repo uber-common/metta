@@ -1,0 +1,16 @@
+enabled: true
+meta:
+  author: redcanary
+  created: 2017-11-05
+  decorations:
+  - Purple Team
+  description: Windows commandline new user creation with dsadd.
+  link: http://pwnwiki.io/#!index.md
+  mitre_link: https://attack.mitre.org/wiki/Technique/T1136
+  mitre_attack_phase: Credential Access
+  mitre_attack_technique: Create Account
+  purple_actions:
+    1: cmd.exe /c dsadd user CN=John,CN=Users,DC=it,DC=uk,DC=savilltech,DC=com -samid John -pwd Pa55word123
+os: windows
+name: Windows commandline new user creation with dsadd.
+uuid: 89068c8b-0dea-4aab-a02c-3f74a7114695
