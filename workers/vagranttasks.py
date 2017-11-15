@@ -82,6 +82,7 @@ def runcmd_nodb_win(vagrant_cmd, rule_name, rule_uuid, hostname):
 		print "##### DEBUG -- We made it to the vagrant function  -- DEBUG ###### "
 		print "'Running: {} with Rule GUID: {} against vagrant {}".format(vagrant_cmd, rule_uuid, hostname)
 		cmd = "vagrant winrm "+hostname+" -c " +"\"" + vagrant_cmd +"\""
+		print cmd
 		dovagrant = subprocess.call(cmd, shell=True)
 		print dovagrant
 	except Exception as e:
@@ -95,6 +96,7 @@ def runcmd_nodb_osx(vagrant_cmd, rule_name, rule_uuid, hostname):
 		print "##### DEBUG -- We made it to the vagrant function  -- DEBUG ###### "
 		print "'Running: {} with Rule GUID: {} against vagrant {}".format(vagrant_cmd, rule_uuid, hostname)
 		cmd = "vagrant ssh "+hostname+" -c " +"\"" + vagrant_cmd +"\""
+		print cmd
 		dovagrant = subprocess.call(cmd, shell=True)
 		print dovagrant
 	except Exception as e:
@@ -108,6 +110,7 @@ def runcmd_nodb_linux(vagrant_cmd, rule_name, rule_uuid, hostname):
 		print "##### DEBUG -- We made it to the vagrant function  -- DEBUG ###### "
 		print "'Running: {} with Rule GUID: {} against vagrant {}".format(vagrant_cmd, rule_uuid, hostname)
 		cmd = "vagrant ssh "+hostname+" -c " +"\"" + vagrant_cmd +"\""
+		print cmd
 		dovagrant = subprocess.call(cmd, shell=True)
 		print dovagrant
 	except Exception as e:

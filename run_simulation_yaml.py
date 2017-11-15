@@ -19,9 +19,9 @@ from random import randint
 #slack hook URL
 hook = ""
 
-windows = ""
-osx = ""
-linux = ""
+windows = " "
+osx = " "
+linux = " "
 
 banner = '''
    _____          __    __          
@@ -204,7 +204,7 @@ def parse_yaml(ioc_filename):
         print e
 
 def main():
-    parser = ArgumentParser(description="adversarial-simulation-automation")
+    parser = ArgumentParser(description="adversarial-simulation ")
     parser.add_argument("-f", "--simfile", action="store", default=None, required=True,dest="simfile", help="Path to simulation file you want to run")
     args = parser.parse_args()
     config = ConfigParser.RawConfigParser()
@@ -215,11 +215,15 @@ def main():
         print e
         sys.exit(0)
 
+    global windows
     windows = config.get('vms','windows')
-
+    
+    global osx
     osx = config.get('vms', 'osx')
-
+    
+    global linux
     linux = config.get('vms','linux')
+    
 
     parse_yaml(args.simfile)
 

@@ -1,6 +1,9 @@
 # Vagrant configs
 .vagrant/
 
+#the config file
+config.ini
+
 # Dump files
 dump.rdb
 
