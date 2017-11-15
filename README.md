@@ -20,7 +20,7 @@ The various actions live in the MITRE folder sorted by MITRE ATT&CK phases and a
 Just run the python and yaml file of your choice
 
 ```
-$ python run_simulation_yaml.py MITRE/Discovery/discovery_account.yaml
+$ python run_simulation_yaml.py -f MITRE/Discovery/discovery_account.yaml
 YAML FILE: MITRE/Discovery/discovery_account.yaml
 OS matched windows...sending to the windows vagrant
 Running: cmd.exe /c net group \"Domain Admins\" /domain

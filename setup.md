@@ -85,6 +85,30 @@ Others
 
 https://www.vagrantup.com/docs/providers/
 
+## Setup Configuration File 
+There are 3 sections to the config.ini file
+* [vms]
+The items here are the names of the vagrant vms to execute the simulations on
+* [reporting]
+The items here are for things like the slack integration
+* [configuration]
+* * The vagrantlocation variable is the directory where you have the VagrantFile stored for the vms you are using
+* * The redis variable is where the hostname/ip address of the redis server you are using 
+
+```
+[vms]
+windows=win-cb
+osx=osx-cb
+linux=todo
+
+[reporting]
+slack=https://hooks.slack.com/services/XXXXXX
+
+[configuration]
+vagrantlocation=/Users/xxxx/vms/win-cb 
+redis=localhost
+```
+
 ## Confirm redis is running (Run this is its own terminal tab)
 ```
 netstat -pant | grep 6379

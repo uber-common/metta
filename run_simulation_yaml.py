@@ -1,6 +1,7 @@
 #author Chris Gates - Uber
+#additions author Russ Nolen - Riot Games
 
-# adversarial-simulation-automation
+# adversarial simulation engine
 import datetime
 import subprocess
 import time
@@ -10,15 +11,17 @@ import logging
 import pprint
 import sys
 import requests
+import ConfigParser
+from argparse import ArgumentParser
 
 from random import randint
 
 #slack hook URL
-hook = 'https://hooks.slack.com/services/XXXXXX'
+hook = ""
 
-windows = "windows-cb"
-osx = "osx-cb"
-linux = "todo"
+windows = ""
+osx = ""
+linux = ""
 
 banner = '''
    _____          __    __          
@@ -200,8 +203,25 @@ def parse_yaml(ioc_filename):
     except Exception, e:
         print e
 
-if len(sys.argv) < 2:
-    print("You must specify a filename")
-    sys.exit(0)
-else:
-    parse_yaml(sys.argv[1])
+def main():
+    parser = ArgumentParser(description="adversarial-simulation-automation")
+    parser.add_argument("-f", "--simfile", action="store", default=None, required=True,dest="simfile", help="Path to simulation file you want to run")
+    args = parser.parse_args()
+    config = ConfigParser.RawConfigParser()
+
+    try:
+        config.read('config.ini')
+    except Exception as e:
+        print e
+        sys.exit(0)
+
+    windows = config.get('vms','windows')
+
+    osx = config.get('vms', 'osx')
+
+    linux = config.get('vms','linux')
+
+    parse_yaml(args.simfile)
+
+if __name__=='__main__':
+    main()
