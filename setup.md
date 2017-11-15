@@ -92,7 +92,7 @@ The items here are the names of the vagrant vms to execute the simulations on
 * [reporting]
 The items here are for things like the slack integration
 * [configuration]
-* * The vagrantlocation variable is the directory where you have the VagrantFile stored for the vms you are using
+* * The vagrant location variable is the directory where you have the VagrantFile stored for the vms you are using
 * * The redis variable is where the hostname/ip address of the redis server you are using 
 
 ```
