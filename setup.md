@@ -220,7 +220,7 @@ user@ubuntu:~/metta$ redis-server
 
 ```
 
-$ python run_simulation_yaml.py MITRE/Adversarial_Simulation/ontarget_recon.yml
+$ python run_simulation_yaml.py -f MITRE/Adversarial_Simulation/ontarget_recon.yml
 YAML FILE: MITRE/Adversarial_Simulation/ontarget_recon.yml
 OS matched windows...sending to the windows vagrant
 Running: net user
