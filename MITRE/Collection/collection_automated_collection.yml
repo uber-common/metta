@@ -1,0 +1,17 @@
+enabled: true
+meta:
+  author: redcanary
+  created: 2017-11-15
+  decorations:
+  - Purple Team
+  description: mass automated collection of a file type
+  link: 
+  mitre_link: https://attack.mitre.org/wiki/Technique/T1119
+  mitre_attack_phase: Collection
+  mitre_attack_technique: Automated Collection
+  purple_actions:
+    1: cmd.exe /c dir 'c:' /b /s .docx | findstr /e .docx
+    2: cmd.exe /c powershell Get-ChildItem -Recurse -Include *.doc | % {Copy-Item $_.FullName -destination c:\temp}
+os: windows
+name: mass automated collection of a file type
+uuid: 2174ff79-d5bd-4a45-8b6b-a7c961e6b97d

@@ -1,0 +1,16 @@
+enabled: true
+meta:
+  author: redcanary
+  created: 2017-11-15
+  decorations:
+  - Purple Team
+  description: collect audio on windows (requires a soundcard/mic and Windows 7 or 8)
+  link: https://www.digitalcitizen.life/record-audio-sound-recorder-windows-7
+  mitre_link: https://attack.mitre.org/wiki/Technique/T1123
+  mitre_attack_phase: Collection
+  mitre_attack_technique: Audio Capture
+  purple_actions:
+    1: cmd.exe /c SoundRecorder /FILE test.wma /DURATION 0000:00:30
+os: windows
+name: collect audio on windows
+uuid: f84dba18-f782-4bab-b724-e7dd20f94c09
