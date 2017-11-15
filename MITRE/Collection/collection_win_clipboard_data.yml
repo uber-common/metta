@@ -1,0 +1,17 @@
+enabled: true
+meta:
+  author: redcanary
+  created: 2017-11-15
+  decorations:
+  - Purple Team
+  description: load data to the windows clipboard
+  link: https://technet.microsoft.com/en-us/library/cc754731(v=ws.11).aspx
+  mitre_link: https://attack.mitre.org/wiki/Technique/T1115
+  mitre_attack_phase: Collection
+  mitre_attack_technique: Clipboard Data
+  purple_actions:
+    1: cmd.exe /c whoami | clip
+    2: cmd.exe /c powershell.exe echo Get-Process | clip
+os: windows
+name: load data to the windows clipboard
+uuid: ecdcb071-4763-4d97-9248-6790bc05586f
