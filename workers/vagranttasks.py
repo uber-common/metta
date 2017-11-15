@@ -6,14 +6,21 @@ import datetime
 import os
 import sys
 import datetime
+import ConfigParser
+config = ConfigParser.RawConfigParser()
 
 sys.path.append(os.path.join(os.path.dirname(__file__), '..', '..'))
 #from database import db
 
-sim_vagrant = Celery('tasks', backend='redis://localhost/0', broker='redis://localhost/1')
+#read in the variables from the config.ini file
+config.read('config.ini')
+vagrantlocation = config.get('configuration', 'vagrantlocation')
+redis = config.get('configuration','redis')
+redisbackend = 'redis://%s/0' % redis
+redisbroker = 'redis://%s/1' % redis
 
-# change for current vagrant location
-vagrantlocation = "/Users/xxxxx/vagrant_rules_automation/"
+sim_vagrant = Celery('tasks', backend=redisbackend, broker=redisbroker)
+
 
 @sim_vagrant.task
 def alive_vagrant():
