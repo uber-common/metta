@@ -1,0 +1,20 @@
+enabled: true
+meta:
+  author: cg
+  created: 2017-10-03
+  decorations:
+  - Purple Team
+  description: Disable windows firewall win7+.
+  link: https://attack.mitre.org/wiki/Technique/T1089
+  mitre_link: https://attack.mitre.org/wiki/Technique/T1089
+  mitre_attack_phase: Defense Evasion
+  mitre_attack_technique: Disabling Security Tools
+  purple_actions:
+    1: cmd.exe /c netsh advfirewall set  currentprofile state off
+    2: cmd.exe /c netsh advfirewall set domainprofile state off
+    3: cmd.exe /c netsh advfirewall set privateprofile state off
+    4: cmd.exe /c netsh advfirewall set publicprofile state off
+    5: cmd.exe /c netsh advfirewall set  allprofiles state off
+os: windows
+name: Disable Windows Firewall Vista+
+uuid: 42ec081d-c6e3-4f84-9b7f-bb34bca0f8b4

