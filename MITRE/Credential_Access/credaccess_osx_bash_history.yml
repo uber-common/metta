@@ -10,11 +10,11 @@ meta:
   mitre_attack_phase: Credential Access
   mitre_attack_technique: Bash History
   purple_actions:
-    1: cat ~/.bash_history | grep -e \'-p \' -e \'pass\' -e \'ssh\' > loot_bash.txt
+    1: cat ~/.bash_history | grep -e '-p ' -e 'pass' -e 'ssh' > loot_bash.txt
     2: cat loot_bash.txt
-    3: cat ~/.sh_history | grep -e \'-p \' -e \'pass\' -e \'ssh\' > loot_sh.txt
+    3: cat ~/.sh_history | grep -e '-p ' -e 'pass' -e 'ssh' > loot_sh.txt
     4: cat loot_sh.txt
-    5: cat ~/.zsh_history | grep -e \'-p \' -e \'pass\' -e \'ssh\' > loot_zsh.txt
+    5: cat ~/.zsh_history | grep -e '-p ' -e 'pass' -e 'ssh' > loot_zsh.txt
     6: cat loot_zsh.txt
 os: osx
 name: search for passwords in OSX bash_history

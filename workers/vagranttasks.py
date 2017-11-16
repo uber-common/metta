@@ -1,5 +1,6 @@
 from celery import Celery
 import subprocess
+import shlex
 import json
 import time
 import datetime
@@ -33,8 +34,10 @@ def runcmd_win(vagrant_cmd, rule_name, rule_uuid, hostname):
 		os.chdir(vagrantlocation)
 		print "##### DEBUG -- We made it to the vagrant function  -- DEBUG ###### "
 		print "'Running: {} with Rule GUID: {} against vagrant {}".format(vagrant_cmd, rule_uuid, hostname)
-		cmd = "vagrant winrm "+hostname+" -c " +"\"" + vagrant_cmd +"\""
-		dovagrant = subprocess.call(cmd, shell=True)
+		cmd = 'vagrant winrm {} -c "{}"'.format(hostname, vagrant_cmd)
+		args = shlex.split(cmd)
+		print args
+		dovagrant = subprocess.Popen(args)
 		print dovagrant
 		print "Inserting info into the DB"
 		execution_time = datetime.datetime.utcnow()
@@ -49,8 +52,10 @@ def runcmd_osx(vagrant_cmd, rule_name, rule_uuid, hostname):
 		os.chdir(vagrantlocation)
 		print "##### DEBUG -- We made it to the vagrant function  -- DEBUG ###### "
 		print "'Running: {} with Rule GUID: {} against vagrant {}".format(vagrant_cmd, rule_uuid, hostname)
-		cmd = "vagrant ssh "+hostname+" -c " +"\"" + vagrant_cmd +"\""
-		dovagrant = subprocess.call(cmd, shell=True)
+		cmd = 'vagrant ssh {} -c "{}"'.format(hostname, vagrant_cmd)
+		args = shlex.split(cmd)
+		print args
+		dovagrant = subprocess.Popen(args)
 		print dovagrant
 		print "Inserting info into the DB"
 		execution_time = datetime.datetime.utcnow()
@@ -65,8 +70,10 @@ def runcmd_linux(vagrant_cmd, rule_name, rule_uuid, hostname):
 		os.chdir(vagrantlocation)
 		print "##### DEBUG -- We made it to the vagrant function  -- DEBUG ###### "
 		print "'Running: {} with Rule GUID: {} against vagrant {}".format(vagrant_cmd, rule_uuid, hostname)
-		cmd = "vagrant ssh "+hostname+" -c " +"\"" + vagrant_cmd +"\""
-		dovagrant = subprocess.call(cmd, shell=True)
+		cmd = 'vagrant ssh {} -c "{}"'.format(hostname, vagrant_cmd)
+		args = shlex.split(cmd)
+		print args
+		dovagrant = subprocess.Popen(args)
 		print dovagrant
 		print "Inserting info into the DB"
 		execution_time = datetime.datetime.utcnow()
@@ -81,9 +88,11 @@ def runcmd_nodb_win(vagrant_cmd, rule_name, rule_uuid, hostname):
 		os.chdir(vagrantlocation)
 		print "##### DEBUG -- We made it to the vagrant function  -- DEBUG ###### "
 		print "'Running: {} with Rule GUID: {} against vagrant {}".format(vagrant_cmd, rule_uuid, hostname)
-		cmd = "vagrant winrm "+hostname+" -c " +"\"" + vagrant_cmd +"\""
-		print cmd
-		dovagrant = subprocess.call(cmd, shell=True)
+		#cmd = "vagrant winrm "+hostname+" -c " +"\"" + vagrant_cmd +"\""
+		cmd = 'vagrant winrm {} -c "{}"'.format(hostname, vagrant_cmd)
+		args = shlex.split(cmd)
+		print args
+		dovagrant = subprocess.Popen(args)
 		print dovagrant
 	except Exception as e:
 		print(e)
@@ -95,9 +104,10 @@ def runcmd_nodb_osx(vagrant_cmd, rule_name, rule_uuid, hostname):
 		os.chdir(vagrantlocation)
 		print "##### DEBUG -- We made it to the vagrant function  -- DEBUG ###### "
 		print "'Running: {} with Rule GUID: {} against vagrant {}".format(vagrant_cmd, rule_uuid, hostname)
-		cmd = "vagrant ssh "+hostname+" -c " +"\"" + vagrant_cmd +"\""
-		print cmd
-		dovagrant = subprocess.call(cmd, shell=True)
+		cmd = 'vagrant ssh {} -c "{}"'.format(hostname, vagrant_cmd)
+		args = shlex.split(cmd)
+		print args
+		dovagrant = subprocess.Popen(args)
 		print dovagrant
 	except Exception as e:
 		print(e)
@@ -109,9 +119,10 @@ def runcmd_nodb_linux(vagrant_cmd, rule_name, rule_uuid, hostname):
 		os.chdir(vagrantlocation)
 		print "##### DEBUG -- We made it to the vagrant function  -- DEBUG ###### "
 		print "'Running: {} with Rule GUID: {} against vagrant {}".format(vagrant_cmd, rule_uuid, hostname)
-		cmd = "vagrant ssh "+hostname+" -c " +"\"" + vagrant_cmd +"\""
-		print cmd
-		dovagrant = subprocess.call(cmd, shell=True)
+		cmd = 'vagrant ssh {} -c "{}"'.format(hostname, vagrant_cmd)
+		args = shlex.split(cmd)
+		print args
+		dovagrant = subprocess.Popen(args)
 		print dovagrant
 	except Exception as e:
 		print(e)
