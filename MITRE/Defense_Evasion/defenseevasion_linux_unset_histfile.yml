@@ -17,4 +17,4 @@ meta:
     5: cat /dev/null > ~/.bash_history
 os: linux
 name: unset histfile on linux
-uuid: bfcdf845-92fb-4895-bd1d-ce735d1f21f5
+uuid: 912a8a3c-bc92-45c7-83e2-e7f796e46559
