@@ -1,0 +1,20 @@
+enabled: true
+meta:
+  author: redcanary
+  created: 2017-11-28
+  decorations:
+  - Purple Team
+  description: unset histfile on linux
+  link: https://attackerkb.com/Unix/LinuxUnixBSD_Post_Exploitation
+  mitre_link: https://attack.mitre.org/wiki/Technique/T1146
+  mitre_attack_phase: Defense Evasion
+  mitre_attack_technique: Clear Command History
+  purple_actions:
+    1: unset HISTFILE
+    2: export HISTFILESIZE=0
+    3: history -c
+    4: rm ~/.bash_history
+    5: cat /dev/null > ~/.bash_history
+os: linux
+name: unset histfile on linux
+uuid: bfcdf845-92fb-4895-bd1d-ce735d1f21f5

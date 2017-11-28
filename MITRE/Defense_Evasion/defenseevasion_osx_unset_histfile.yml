@@ -1,0 +1,24 @@
+enabled: true
+meta:
+  author: redcanary
+  created: 2017-11-28
+  decorations:
+  - Purple Team
+  description: unset histfile on osx
+  link: https://attackerkb.com/Unix/LinuxUnixBSD_Post_Exploitation
+  mitre_link: https://attack.mitre.org/wiki/Technique/T1146
+  mitre_attack_phase: Defense Evasion
+  mitre_attack_technique: Clear Command History
+  purple_actions:
+    1: unset HISTFILE
+    2: export HISTFILESIZE=0
+    3: history -c
+    4: rm ~/.bash_history
+    5: cat /dev/null > ~/.bash_history
+    6: rm ~/.zsh_history
+    7: cat /dev/null > ~/.zsh_history
+    8: rm ~/.sh_history
+    9: cat /dev/null > ~/.sh_history
+os: osx
+name: unset histfile on osx
+uuid: bfcdf845-92fb-4895-bd1d-ce735d1f21f5
