@@ -1,0 +1,17 @@
+enabled: true
+meta:
+  author: redcanary
+  created: 2017-11-28
+  decorations:
+  - Purple Team
+  description: disable gatekeeper on osx
+  link: https://www.tekrevue.com/tip/gatekeeper-macos-sierra/
+  mitre_link: https://attack.mitre.org/wiki/Technique/T1144
+  mitre_attack_phase: Defense Evasion
+  mitre_attack_technique: Gatekeeper Bypass
+  purple_actions:
+    1: sudo xattr -r -d com.apple.quarantine /path/to/MyApp.app
+    2: sudo spctl --master-disable
+os: osx
+name: disable gatekeeper on osx
+uuid: 73574fa8-5e00-4205-8970-1ab7a5c41edb
