@@ -1,0 +1,17 @@
+enabled: true
+meta:
+  author: cg
+  created: 2017-11-28
+  decorations:
+  - Purple Team
+  description: Find world writable files
+  link: http://blog.sevagas.com/?Linux-filesystem-security-scans
+  mitre_link: https://attack.mitre.org/wiki/Technique/T1044
+  mitre_attack_phase: Privilege Escalation
+  mitre_attack_technique: File System Permissions Weakness
+  purple_actions:
+    1: find / -perm -o+w
+    2: find / ! -type l -perm -002  2>/dev/null
+os: linux
+name: Find world writable files
+uuid: a36f0576-1976-4ce3-a589-d17ef718b90c
