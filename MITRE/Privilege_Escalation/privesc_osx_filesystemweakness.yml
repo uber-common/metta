@@ -7,8 +7,8 @@ meta:
   description: Find world writable files
   link: http://blog.sevagas.com/?Linux-filesystem-security-scans
   mitre_link: https://attack.mitre.org/wiki/Technique/T1044
-  mitre_attack_phase: Execution
-  mitre_attack_technique: AppleScript
+  mitre_attack_phase: Privilege Escalation
+  mitre_attack_technique: File System Permissions Weakness
   purple_actions:
     1: find / -perm -o+w
     2: find / ! -type l -perm -002  2>/dev/null
