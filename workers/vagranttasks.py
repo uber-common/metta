@@ -1,13 +1,13 @@
+import datetime
+import json
+import os
+import shlex
+import subprocess
+import sys
+import time
+
 from celery import Celery
 from config import BaseConfig
-import subprocess
-import shlex
-import json
-import time
-import datetime
-import os
-import sys
-import datetime
 
 config = BaseConfig()
 sim_vagrant = Celery('tasks', backend=config.redisbackend, broker=config.redisbroker)
