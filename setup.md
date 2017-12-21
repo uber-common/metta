@@ -86,27 +86,31 @@ Others
 https://www.vagrantup.com/docs/providers/
 
 ## Setup Configuration File 
-There are 3 sections to the config.ini file
+There are 4 sections to the config.ini file
 * [vms]
 The items here are the names of the vagrant vms to execute the simulations on
 * [reporting]
 The items here are for things like the slack integration
 * [configuration]
-* * The vagrant location variable is the directory where you have the VagrantFile stored for the vms you are using
-* * The redis variable is where the hostname/ip address of the redis server you are using 
+  * The vagrant location variable is the directory where you have the VagrantFile stored for the vms you are using
+  * The redis variable is where the hostname/ip address of the redis server you are using 
+* [console_log_output] Whether or not you want the information that gets logged to the json log to be displayed to the console or not (default is false)
 
 ```
 [vms]
-windows=win-cb
-osx=osx-cb
-linux=todo
+windows=win-vagrant
+osx=osx-vagrant
+linux=linux-vagrant
 
 [reporting]
 slack=https://hooks.slack.com/services/XXXXXX
 
 [configuration]
-vagrantlocation=/Users/xxxx/vms/win-cb 
+vagrantlocation=/Users/xxxx/vms/win-vagrant
 redis=localhost
+
+[console_log_output]
+enabled=false
 ```
 
 ## Confirm redis is running (Run this is its own terminal tab)
