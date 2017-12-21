@@ -23,7 +23,6 @@ def alive_vagrant():
 @sim_vagrant.task
 def runcmd_nodb_win(vagrant_cmd, rule_name, rule_uuid, hostname):
     try:
-
         logging.info('#####  We made it to the vagrant function  ###### ') 
         logging.info( "'Running: {} with Rule GUID: {} against vagrant {}".format(vagrant_cmd, rule_uuid, hostname))
         cmd = 'vagrant winrm {} -c "{}"'.format(hostname, vagrant_cmd)
