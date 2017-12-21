@@ -22,41 +22,40 @@ def alive_vagrant():
 
 @sim_vagrant.task
 def runcmd_nodb_win(vagrant_cmd, rule_name, rule_uuid, hostname):
-	try:
+    try:
 
-		logging.info('#####  We made it to the vagrant function  ###### ') 
-		logging.info( "'Running: {} with Rule GUID: {} against vagrant {}".format(vagrant_cmd, rule_uuid, hostname))
-		#cmd = "vagrant winrm "+hostname+" -c " +"\"" + vagrant_cmd +"\""
-		cmd = 'vagrant winrm {} -c "{}"'.format(hostname, vagrant_cmd)
-		args = shlex.split(cmd)
-		logging.info("Arguments passed to vagrant are: {}".format(args))
-		dovagrant = subprocess.Popen(args)
-	except Exception as e:
-		print(e)
-		logging.warning(e)
+        logging.info('#####  We made it to the vagrant function  ###### ') 
+        logging.info( "'Running: {} with Rule GUID: {} against vagrant {}".format(vagrant_cmd, rule_uuid, hostname))
+        cmd = 'vagrant winrm {} -c "{}"'.format(hostname, vagrant_cmd)
+        args = shlex.split(cmd)
+        logging.info("Arguments passed to vagrant are: {}".format(args))
+        dovagrant = subprocess.Popen(args)
+    except Exception as e:
+        print(e)
+        logging.warning(e)
 
 @sim_vagrant.task
 def runcmd_nodb_osx(vagrant_cmd, rule_name, rule_uuid, hostname):
-	try:
-		logging.info('#####  We made it to the vagrant function  ###### ')
-		logging.info( "'Running: {} with Rule GUID: {} against vagrant {}".format(vagrant_cmd, rule_uuid, hostname))
-		cmd = 'vagrant ssh {} -c "{}"'.format(hostname, vagrant_cmd)
-		args = shlex.split(cmd)
-		logging.info("Arguments passed to vagrant are: {}".format(args))
-		dovagrant = subprocess.Popen(args)
-	except Exception as e:
-		print(e)
-		logging.warning(e)
+    try:
+        logging.info('#####  We made it to the vagrant function  ###### ')
+        logging.info( "'Running: {} with Rule GUID: {} against vagrant {}".format(vagrant_cmd, rule_uuid, hostname))
+        cmd = 'vagrant ssh {} -c "{}"'.format(hostname, vagrant_cmd)
+        args = shlex.split(cmd)
+        logging.info("Arguments passed to vagrant are: {}".format(args))
+        dovagrant = subprocess.Popen(args)
+    except Exception as e:
+        print(e)
+        logging.warning(e)
 
 @sim_vagrant.task
 def runcmd_nodb_linux(vagrant_cmd, rule_name, rule_uuid, hostname):
-	try:
-		logging.info('#####  We made it to the vagrant function  ###### ')
-		logging.info( "'Running: {} with Rule GUID: {} against vagrant {}".format(vagrant_cmd, rule_uuid, hostname))
-		cmd = 'vagrant ssh {} -c "{}"'.format(hostname, vagrant_cmd)
-		args = shlex.split(cmd)
-		logging.info("Arguments passed to vagrant are: {}".format(args))
-		dovagrant = subprocess.Popen(args)
-	except Exception as e:
-		print(e)
-		logging.warning(e)
+    try:
+        logging.info('#####  We made it to the vagrant function  ###### ')
+        logging.info( "'Running: {} with Rule GUID: {} against vagrant {}".format(vagrant_cmd, rule_uuid, hostname))
+        cmd = 'vagrant ssh {} -c "{}"'.format(hostname, vagrant_cmd)
+        args = shlex.split(cmd)
+        logging.info("Arguments passed to vagrant are: {}".format(args))
+        dovagrant = subprocess.Popen(args)
+    except Exception as e:
+        print(e)
+        logging.warning(e)
