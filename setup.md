@@ -94,7 +94,7 @@ The items here are for things like the slack integration
 * [configuration]
   * The vagrant location variable is the directory where you have the VagrantFile stored for the vms you are using
   * The redis variable is where the hostname/ip address of the redis server you are using 
-* [console_log_output] Whether or not you want the information that gets logged to the json log to be displayed to the console or not (default is false)
+* [console_log_output] Whether or not you want the information that gets logged to the json log to be displayed to the console (default is false)
 
 ```
 [vms]
