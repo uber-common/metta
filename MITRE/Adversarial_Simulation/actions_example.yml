@@ -8,6 +8,7 @@ meta:
   link: https://carnal0wnage.attackresearch.com
   mitre_attack_phase: Discovery
   mitre_attack_technique: Account Discovery
+  mitre_link: http://linkhere
   purple_actions:
     1: cmd.exe /c net user
     2: cmd.exe /c net user /domain
