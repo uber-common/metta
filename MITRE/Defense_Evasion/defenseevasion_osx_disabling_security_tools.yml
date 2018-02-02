@@ -1,0 +1,18 @@
+enabled: true
+meta:
+  author: redcanary
+  created: 2017-11-28
+  decorations:
+  - Purple Team
+  description: disabling common security tools on osx
+  link: https://attackerkb.com/Unix/LinuxUnixBSD_Post_Exploitation
+  mitre_link: https://attack.mitre.org/wiki/Technique/T1089
+  mitre_attack_phase: Defense Evasion
+  mitre_attack_technique: Disabling Security Tools
+  purple_actions:
+    1: sudo launchctl unload /Library/LaunchDaemons/com.carbonblack.daemon.plist
+    2: sudo launchctl unload /Library/LaunchDaemons/at.obdev.littlesnitchd.plist
+    3: sudo launchctl unload /Library/LaunchDaemons/com.opendns.osx.RoamingClientConfigUpdater.plist
+os: osx
+name: disabling common security tools on osx
+uuid: b4d19031-81a4-409e-95bf-78556f5d4ce0
