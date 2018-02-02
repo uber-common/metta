@@ -9,7 +9,7 @@ meta:
   mitre_attack_phase: null
   mitre_attack_technique: null
   mitre_link: https://attack.mitre.org/wiki/Group/G0018
-  scenario: True
+  scenario: true
   scenario_actions:
     1: MITRE/Execution/execution_win_cmdline_interface_admin338.yml
     2: MITRE/Discovery/discovery_win_system_info_discovery_admin338.yml
