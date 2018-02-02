@@ -1,4 +1,4 @@
-enabled: true
+enabled: True
 meta:
   author: cg
   created: 2017-10-10
@@ -8,7 +8,7 @@ meta:
   link: http://carnal0wnage.attackresearch.com
   mitre_attack_phase: null
   mitre_attack_technique: null
-  scenario: true
+  scenario: True
   scenario_actions:
     1: MITRE/Discovery/discovery_account.yaml
     2: MITRE/Credential_Access/credaccess_win_creddump.yml
