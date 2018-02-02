@@ -1,4 +1,5 @@
 #author Chris Gates - Uber
+#additions Maus - Uber
 #additions author Russ Nolen - Riot Games
 
 # adversarial simulation engine
