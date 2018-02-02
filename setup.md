@@ -6,7 +6,11 @@ sudo apt-get update
 sudo apt-get install build-essential
 sudo apt-get install redis-server git python-pip screen python-yaml
 ```
+OSX
 
+```
+installing the above with homebrew should get you going
+```
 
 Set up a virtual python enviroment in the repo folder
 ref: http://docs.python-guide.org/en/latest/dev/virtualenvs/
