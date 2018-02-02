@@ -13,6 +13,8 @@ The project parses yaml files with actions and uses celery to queue these action
 # Installation
 [see setup.md](setup.md)
 
+There is also a [wiki](https://github.com/uber-common/metta/wiki)
+
 
 # Running actions
 The various actions live in the MITRE folder sorted by MITRE ATT&CK phases and also in Adversarial_Simulation
