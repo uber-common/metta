@@ -55,9 +55,8 @@ vagrant up
 ```
 
 >>>
-** IMPORTANT  update workers/vagranttasks.py to point to the virtualbox/vagrant boxes location
+** IMPORTANT  update config.ini to point to the virtualbox/vagrant boxes location
 
-** IMPORTANT update run_simulation_yaml.py to reflect the names of your vagrants
 >>>
 
 # Cloud && Vagrant
