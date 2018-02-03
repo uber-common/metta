@@ -50,7 +50,7 @@ Set up your vagrants
 
 * Set passwords and enable winrm on the windows host so the winrm-* plugins will work
  * ref: https://www.vagrantup.com/docs/boxes/base.html (windows section)
- * ```vagrant winrm windows-vagrant -c whoami ```     -- should work :-) 
+ * ```vagrant winrm -c whoami ```     -- should work :-) 
 
 * install any instrumentation you need to install
 
