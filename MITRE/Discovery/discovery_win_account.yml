@@ -11,7 +11,7 @@ meta:
   mitre_attack_technique: Account Discovery
   purple_actions:
     1: cmd.exe /c net group \"Domain Admins\" /domain
-    2: cmd.exe /c net user /add
+    2: cmd.exe /c net user
     3: cmd.exe /c net user /domain
     4: cmd.exe /c net localgroup administrators
     5: cmd.exe /c net share
