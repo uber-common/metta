@@ -191,7 +191,7 @@ def parse_yaml(ioc_filename):
             if not scenario:
                 run_uuid(ioc_filename)
             #if the scenario field is found and if it's true run the run_scenario function
-            if scenario == True or scenario == true:
+            if scenario == True:
                 run_scenario(ioc_filename)
         close_log()
 
