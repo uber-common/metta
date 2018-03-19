@@ -9,7 +9,7 @@ meta:
   mitre_attack_phase: Discovery
   mitre_attack_technique: System Information Discovery
   purple_actions:
-    1: cmd.exe /c tasklist /s /v
+    1: cmd.exe /c tasklist /v
     2: cmd.exe /c ver
     3: cmd.exe /c ipconfig /all
     4: cmd.exe /c set
