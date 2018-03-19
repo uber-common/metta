@@ -3,22 +3,26 @@
 #additions author Russ Nolen - Riot Games
 
 # adversarial simulation engine
-import ConfigParser
+from __future__ import print_function
+
 import datetime
 import json
 import logging
-import os
-import pprint
-import requests
-import subprocess
 import sys
 import time
-import yaml
-
 from argparse import ArgumentParser
-from reporting.log_to_file import *
 from random import randint
+
+import requests
+
+import yaml
+from reporting.log_to_file import *
 from workers.vagranttasks import *
+
+try:
+    import configparser as ConfigParser  # Python 3
+except ImportError:
+    import ConfigParser                  # Python 2
 
 #slack hook URL
 hook = ""
@@ -30,17 +34,17 @@ linux = " "
 
 #banners for metta
 banner = '''
-   _____          __    __          
-  /     \   _____/  |__/  |______   
- /  \ /  \_/ __ \   __\   __\__  \  
+   _____          __    __
+  /     \   _____/  |__/  |______
+ /  \ /  \_/ __ \   __\   __\__  \
 /    Y    \  ___/|  |  |  |  / __ \_
 \____|__  /\___  >__|  |__| (____  /
-        \/     \/                \/ 
+        \/     \/                \/
 '''
 
 banner2 = '''
 
- __   __  _______  _______  _______  _______ 
+ __   __  _______  _______  _______  _______
 |  |_|  ||       ||       ||       ||   _   |
 |       ||    ___||_     _||_     _||  |_|  |
 |       ||   |___   |   |    |   |  |       |
@@ -55,7 +59,7 @@ def post_to_slack(hook,json):
     try:
         r = requests.post(hook, json=json)
     except Exception as e:
-        print e
+        print(e)
 
 def run_scenario(ioc_filename):
     try:
@@ -67,7 +71,7 @@ def run_scenario(ioc_filename):
         for raw_ioc in raw_iocs:
             scenario = raw_ioc.get('meta').get('scenario_actions')
             rule_name = raw_ioc.get('name')
-            print "### {} ###".format(rule_name)
+            print("### {} ###".format(rule_name))
 
             scenario_actions = []
             #read the steps from purple_actions in yaml and load them into purple_actions
@@ -78,11 +82,11 @@ def run_scenario(ioc_filename):
                 run_uuid(uuid_file)
 
     except Exception as e:
-        print e
+        print(e)
 
 def run_uuid(ioc_filename):
     try:
-        print"\nRunning UUID actions inside:{}".format(ioc_filename)
+        print("\nRunning UUID actions inside:{}".format(ioc_filename))
 
         raw_iocs = yaml.load_all(open(ioc_filename,'r').read())
 
@@ -96,7 +100,7 @@ def run_uuid(ioc_filename):
             purple = raw_ioc.get('meta').get('purple_actions')
 
             if not purple:
-                print "No Purple Actions detected you've probably messed up your scenario.yml..."
+                print("No Purple Actions detected you've probably messed up your scenario.yml...")
                 sys.exit(0)
 
             purple_actions = []
@@ -105,7 +109,7 @@ def run_uuid(ioc_filename):
                 purple_actions.append(raw_ioc.get('meta').get('purple_actions').get(x))
 
             if rule_os == "windows":
-                print "OS matched Windows...sending to the windows vagrant"
+                print("OS matched Windows...sending to the windows vagrant")
                 for action in purple_actions:
                     print("Running: {}".format(action))
                     timenow = datetime.datetime.utcnow()
@@ -121,13 +125,13 @@ def run_uuid(ioc_filename):
                         #if you want to post to slack uncomment this and set the slack hook above
                         #json = {'text': "Automated Purple Team --> Simulation: {} | Action: {}  | Host: {} | Execution Time: {} UTC".format(rule_name,action,windows,datetime.datetime.utcnow())}
                         #post_to_slack(hook,json)
-                        
-                        time.sleep(randint(2,30))    
+
+                        time.sleep(randint(2,30))
                     except Exception as e:
                         print(e)
 
             elif rule_os == "osx":
-                print "OS matched OSX...sending to the OSX vagrant"
+                print("OS matched OSX...sending to the OSX vagrant")
                 for action in purple_actions:
                     print("Running: {}".format(action))
                     timenow = datetime.datetime.utcnow()
@@ -149,7 +153,7 @@ def run_uuid(ioc_filename):
                         print(e)
 
             elif rule_os == "linux":
-                print "OS matched Linux...sending to the Linux vagrant"
+                print("OS matched Linux...sending to the Linux vagrant")
                 for action in purple_actions:
                     print("Running: {}".format(action))
                     timenow = datetime.datetime.utcnow()
@@ -170,21 +174,21 @@ def run_uuid(ioc_filename):
                     except Exception as e:
                         print(e)
             else:
-                print "I received an unknown OS"
+                print("I received an unknown OS")
     except KeyboardInterrupt:
         print("CTRL-C received, exiting...")
-    except Exception, e:
-        print e
+    except Exception as e:
+        print(e)
 
 def parse_yaml(ioc_filename):
-    print banner2
-    print "YAML FILE: {}".format(ioc_filename)
+    print(banner2)
+    print("YAML FILE: {}".format(ioc_filename))
     try:
         raw_iocs = yaml.load_all(open(ioc_filename,'r').read())
         start_log("Adversarial Simulation", "1.0")
 
         for raw_ioc in raw_iocs:
-            
+
             scenario = raw_ioc.get('meta').get('scenario')
             purple = raw_ioc.get('meta').get('purple_actions')
             #if we cant find the scenario tag, default to run_uuid
@@ -198,8 +202,8 @@ def parse_yaml(ioc_filename):
     except KeyboardInterrupt:
         print("CTRL-C received, exiting...")
 
-    except Exception, e:
-        print e
+    except Exception as e:
+        print(e)
 
 def main():
     parser = ArgumentParser(description="adversarial-simulation ")
@@ -210,15 +214,15 @@ def main():
     try:
         config.read('config.ini')
     except Exception as e:
-        print e
+        print(e)
         sys.exit(0)
 
     global windows
     windows = config.get('vms','windows')
-    
+
     global osx
     osx = config.get('vms', 'osx')
-    
+
     global linux
     linux = config.get('vms','linux')
 
@@ -242,7 +246,7 @@ def main():
         ''
 
     parse_yaml(args.simfile)
-    
+
 
 if __name__=='__main__':
     main()
