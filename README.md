@@ -63,7 +63,7 @@ The code will be looking for a  scenario: True field and scenario_actions list. 
 
 # Gotchas
 
-The tool takes the string from puple_actions and encapsulates it in quotes. Therefor you need to escape any other quotes, ticks, weird shell characters in your command.
+The tool takes the string from purple_actions and encapsulates it in quotes. Therefore you need to escape any other quotes, ticks, weird shell characters in your command.
 
 Use the output of the vagrant/celery piece to make sure things are working like they should
 
