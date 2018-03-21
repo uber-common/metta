@@ -17,7 +17,7 @@ ref: http://docs.python-guide.org/en/latest/dev/virtualenvs/
 ```
 pip install --user pipenv
 
-git clone metta
+git clone https://github.com/uber-common/metta.git
 cd metta
 
 virtualenv metta
