@@ -156,7 +156,7 @@ user@ubuntu:~/metta$ redis-server
 
 ```
 
-# Start the celery shell script (Run this is its own terminal tab)
+## Start the celery shell script (Run this is its own terminal tab)
 
 ```
 (metta) user@ubuntu:~/metta$ ./start_vagrant_celery.sh 
@@ -228,9 +228,9 @@ user@ubuntu:~/metta$ redis-server
 
 ```
 
-### 1. "vagrant up" your vagrants if you havent
+## "vagrant up" your vagrants if you havent
 
-### 2. In a new tab run  run_simulation_yaml.py
+## In a new tab run  run_simulation_yaml.py
 
 ```
 
@@ -243,7 +243,7 @@ Running: net user /domain
 
 ```
 
-### 3. You should be able to view how things are going in the vagranttasks tab
+##  You should be able to view how things are going in the vagranttasks tab
 
 ```
 [2017-10-02 13:54:54,282: INFO/MainProcess] Received task: workers.vagranttasks.runcmd_nodb_win[dad594b6-d12f-4f3c-a42e-a33051225b66]
