@@ -9,7 +9,13 @@ sudo apt-get install redis-server git python-pip screen python-yaml
 OSX
 
 ```
-installing the above with homebrew should get you going
+installing the above with homebrew/OS utilities should get you going
+brew install redis
+brew install screen
+brew install git
+
+brew install python (if you want to install via homebrew)
+sudo easy_install pip
 ```
 
 Set up a virtual python enviroment in the repo folder
