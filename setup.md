@@ -25,7 +25,8 @@ source metta/bin/activate
 pip install -r requirements.txt
 
 ```
-
+# VirtualBox setup
+Install virtualbox for your OS https://www.virtualbox.org/wiki/Downloads
 
 # Vagrant setup
 
