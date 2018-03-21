@@ -60,7 +60,7 @@ vagrant up
 ```
 
 >>>
-** IMPORTANT  update config.ini to point to the virtualbox/vagrant boxes location
+** IMPORTANT  update config.ini to point to the virtualbox/vagrant boxes location  (see below)
 
 >>>
 
