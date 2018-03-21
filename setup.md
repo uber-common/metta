@@ -54,20 +54,22 @@ vagrant plugin install vagrant-winrm
 ```
 
 Set up your vagrants
+* If you just want to download a Windows vagrant to get going, you can check the documentation here: 
+(https://github.com/uber-common/metta/wiki/Vagrants)
+
+* If you want to build your own box. I recommend building the the virtual machine inside virtualbox then converting it to a vagrant "box"
+  * ref: (https://www.vagrantup.com/docs/virtualbox/boxes.html)
 
 * Set passwords and enable winrm on the windows host so the winrm-* plugins will work
- * ref: https://www.vagrantup.com/docs/boxes/base.html (windows section)
- * ```vagrant winrm -c whoami ```     -- should work :-) 
+  * ref: https://www.vagrantup.com/docs/boxes/base.html (windows section)
+  * ```vagrant winrm -c whoami ```     -- should work
 
-* install any instrumentation you need to install
+* Install any instrumentation you need to install (sysmon, EDR products, syslog, etc)
 
-```
-vagrant up
-```
+* If you need some backgroun on a vagrant file with multiple machines check here: (https://www.vagrantup.com/docs/multi-machine/)
 
 >>>
 ** IMPORTANT  update config.ini to point to the virtualbox/vagrant boxes location  (see below)
-
 >>>
 
 # Cloud && Vagrant
