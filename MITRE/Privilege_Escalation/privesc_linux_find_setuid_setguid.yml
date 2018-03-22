@@ -1,0 +1,18 @@
+enabled: true
+meta:
+  author: paragonsec
+  created: 2018-03-22
+  decorations:
+  - Purple Team
+  description: Find setuid and setgid binaries
+  link: https://attack.mitre.org/wiki/Technique/T1166
+  mitre_technique_id: T1166
+  mitre_attack_phase: Privilege Escalation
+  mitre_attack_technique: Setuid and Setgid
+  purple_actions:
+    1: find / -perm -2000 -o -perm -4000 -ls 2>/dev/null
+    2: find / -perm -2000 2>/dev/null
+    3: find / -perm -4000 2>/dev/null
+os: linux
+name: Find setuid and setgid binaries
+uuid: d2d3eb4f-62d3-41f1-b1a9-ad9935da0193
