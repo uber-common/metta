@@ -1,0 +1,17 @@
+enabled: true
+meta:
+  author: paragonsec
+  created: 2018-03-22
+  decorations:
+  - Purple Team
+  description: Search for SSH Keys
+  link: https://attack.mitre.org/wiki/Technique/T1145
+  mitre_technique_id: T1145
+  mitre_attack_phase: Credential Access
+  mitre_attack_technique: Private Keys
+  purple_actions:
+    1: grep /home/ -irw -e "BEGIN RSA PRIVATE" 2>/dev/null > rsa_keys.txt
+    2: grep /home/ -irw -e "BEGIN DSA PRIVATE" 2>/dev/null > dsa_keys.txt
+os: linux
+name: Search for SSH Keys
+uuid: e7a36f84-ef4b-4bfd-b2e4-22dcb16a962a
