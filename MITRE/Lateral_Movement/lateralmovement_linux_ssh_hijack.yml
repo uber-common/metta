@@ -1,0 +1,19 @@
+enabled: true
+meta:
+  author: paragonsec
+  created: 2018-03-22
+  decorations:
+  - Purple Team
+  description: Lateral Movement with SSH Agent Hijacking
+  link: https://www.clockwork.com/news/2012/09/28/602/ssh_agent_hijacking
+  mitre_link: https://attack.mitre.org/wiki/Technique/T1184
+  mitre_technique_id: T1184
+  mitre_attack_phase: Lateral Movement
+  mitre_attack_technique: Lateral Movement with SSH Agent Hijacking
+  purple_actions:
+    1: grep ~/.ssh/config -e ForwardAgent
+    2: ps ef |grep -i -e "ssh-agent"
+    2: cat /proc/*/environ |tr -s '\0' '\n' | grep SSH_AUTH_SOCK |sort -u 2>/dev/null > ssh_agent.txt
+os: linux
+name: Lateral Movement with SSH Agent Hijacking
+uuid: e821cf4c-a5e3-4e50-9850-0c60c11dfc1f
