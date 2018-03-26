@@ -14,7 +14,7 @@ brew install redis
 brew install screen
 brew install git
 
-brew install python (if you want to install via homebrew)
+brew install python (if you want to install via homebrew) Metta uses Python 2.7 but a fresh homebrew install with install Python 3. some links below to help you with this. Install python 2.7 with homebrew or use pyenv to install Python 2.7
 sudo easy_install pip
 ```
 
@@ -31,6 +31,18 @@ source metta/bin/activate
 pip install -r requirements.txt
 
 ```
+
+* Metta requires Python 2.7 
+* If you are getting import errors on workers.vagranttasks or BaseConfig you should declare a different Python environment when creating the virtualenv.
+```
+virtualenv --python=<path to preferred python> metta
+```
+
+Python and Homebrew: http://docs.python-guide.org/en/latest/starting/install/osx/
+
+pyenv and homebrew python3/2.7 https://stackoverflow.com/questions/18671253/how-can-i-use-homebrew-to-install-both-python-2-and-3-on-mac
+
+
 # VirtualBox setup
 Install virtualbox for your OS https://www.virtualbox.org/wiki/Downloads
 
