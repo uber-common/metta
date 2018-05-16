@@ -33,6 +33,7 @@ hook = ""
 windows = " "
 osx = " "
 linux = " "
+kali = " "
 
 #banners for metta
 banner = '''
@@ -175,6 +176,28 @@ def run_uuid(ioc_filename):
                         time.sleep(randint(2,30))
                     except Exception as e:
                         print(e)
+
+            elif rule_os == "kali":
+                print("OS matched Kali...sending to the Kali Linux vagrant")
+                for action in purple_actions:
+                    print("Running: {}".format(action))
+                    timenow = datetime.datetime.utcnow()
+                    date = timenow.strftime('%Y-%m-%d')
+                    hourminsec = timenow.strftime('%H:%M:%S')
+                    time_to_log = date+" "+hourminsec
+                    try:
+                        vagrant = runcmd_nodb_kali.delay(action, rule_name, rule_uuid, linux)
+                        data = json.dumps({'time' : time_to_log, 'rule_name' : rule_name, 'action' : action, 'mitre_attack_phase' : mitre_phase, 'mitre_attack_technique' : mitre_tech, 'host' : kali})
+                        logging.info(data)
+                        write_row(time_to_log, rule_name, action, mitre_phase, mitre_tech, kali)
+
+                        #if you want to post to slack uncomment this and set the slack hook above
+                        #json = {'text': "Automated Purple Team --> Simulation: {} | Action: {}  | Host: {} | Execution Time: {} UTC".format(rule_name,action,osx,datetime.datetime.utcnow())}
+                        #post_to_slack(hook,json)
+
+                        time.sleep(randint(2,30))
+                    except Exception as e:
+                        print(e)
             else:
                 print("I received an unknown OS")
     except KeyboardInterrupt:
@@ -227,6 +250,9 @@ def main():
 
     global linux
     linux = config.get('vms','linux')
+
+    global kali
+    kali = config.get('vms','kali')
 
     global console_output
     console_log_output = config.get('console_log_output','enabled')
