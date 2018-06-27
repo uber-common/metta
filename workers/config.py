@@ -1,4 +1,9 @@
-import ConfigParser
+#import ConfigParser
+try:
+    import configparser as ConfigParser  # Python 3
+except ImportError:
+    import ConfigParser                  # Python 2
+
 import sys
 import os
 class BaseConfig(object):
