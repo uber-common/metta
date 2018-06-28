@@ -216,11 +216,11 @@ def rc_executor_append(executor_name):
     if executor_name == "command_prompt":
         prefix = "cmd.exe /c "
     elif executor_name == "powershell":
-        prefix = "cmd.exe /c powershell.exe "
+        prefix = "cmd.exe /c powershell.exe iex "
     elif executor_name == "sh":
-        prefix = "/bin/sh "
+        prefix = "/bin/sh -c "
     elif executor_name == "bash":
-        prefix = "/bin/bash "
+        prefix = "/bin/bash -c "
     elif executor_name == "manual":
         prefix = "manual"
     else:
@@ -228,15 +228,18 @@ def rc_executor_append(executor_name):
     return prefix
 
 
-def run_rc_atomictest(ioc_filename):
+def run_rc_atomictest(ioc_filename, TestName):
     try:
         print("\nRunning Red Canary Atomic Tests inside:{}".format(ioc_filename))
 
         raw_iocs = yaml.load_all(open(ioc_filename,'r').read())
 
+        # RC pulls theirs from github master, if this is a feature ppl want request it
+        # otherwise i'm gonna assume you have the folder of atomics checked out
+
         for raw_ioc in raw_iocs:
-            rule_name = raw_ioc.get('display_name')
-            print("MITRE ATT&CK Technique: {}".format(rule_name))
+            display_name = raw_ioc.get('display_name')
+            print("MITRE ATT&CK Technique: {}".format(display_name))
 
             attack_technique = raw_ioc.get('attack_technique')
             print("MITRE ATT&CK TechniqueID: {}".format(attack_technique))
@@ -244,19 +247,40 @@ def run_rc_atomictest(ioc_filename):
 
             # Parse the atomc_tests fields (fingers crossed)
             atomic_tests = raw_ioc.get('atomic_tests')
-            print(atomic_tests)
+            #print(atomic_tests)
 
-            for atomic in atomic_tests:
-                name = atomic.get('name')
-                print("Atomic Test Name: {}".format(name))
+
+            test = list(filter(lambda atomic_tests: atomic_tests['name'] == TestName, atomic_tests))
+            if len(test) != 0:
+                print("{} - Atomic Red Team Test Found...processing...".format(TestName))
+                print(test)
+
+                if 'executor' in test:
+                    print('found executor')
+                else:
+                    print('sad')
+                    #executor_command = atomic.get('executor').get('command')
+                    # print(executor_command)
+
+
+            else:
+                print("########## ERROR ##########\nCould not find the Atomic Red Team Test named: {} ! Check TestName value!".format(TestName))
+                sys.exit
+            #for atomic in atomic_tests:
+            '''
+
+                #name = atomic.get('name')
+                #print(name)
+                if name == TestName:
+                    print("Found the specified test name: {}...continuing".format(TestName))
+        
+                    description = atomic.get('description')
+                    print("Atomic Test Description: {}".format(description))
+
+                    input_arguments = atomic.get('input_arguments')
+                    print('###DEBUG###\n{}\n###DEBUG###'.format(input_arguments))
                 
-                description = atomic.get('description')
-                print("Atomic Test Description: {}".format(description))
-
-                input_arguments = atomic.get('input_arguments')
-                print('###DEBUG###\n{}\n###DEBUG###'.format(input_arguments))
-
-                if input_arguments:
+                    if input_arguments:
                     input_arguments_input_file = atomic.get('input_arguments').get('input_file')
                     input_arguments_output_file = atomic.get('input_arguments').get('output_file')
                     if input_arguments_input_file:
@@ -271,75 +295,80 @@ def run_rc_atomictest(ioc_filename):
                         output_file_type = atomic.get('input_arguments').get('output_file').get('type')
                         output_file_default = atomic.get('input_arguments').get('output_file').get('default')
                         print('###DEBUG###\n{}\n###DEBUG###'.format(output_file_default))
-
-                
-                executor_name = atomic.get('executor').get('name')
-                # print(executor_name)
-                executor_command = atomic.get('executor').get('command')
-                # print(executor_command)
-                
-                #executor_steps = atomic.get('executor').get('steps')
-                #executor_input_arguments.input_file:
-
-
-                supported_platforms = atomic.get('supported_platforms')
-                # gonna have to for each here
-                print(supported_platforms)
-                for platform in supported_platforms:
-
-                    if platform == "windows":
-                        print("OS matched Windows...sending to the windows vagrant")
-                        prefix = rc_executor_append(executor_name)
-                        if prefix != "manual":
-                            print(prefix + executor_command)
-                        else:
-                            print("Manual executor_command found - gotta do it by hand")
                     
-                    elif platform == "osx":
-                        print("OS matched OSX...sending to the OSX vagrant")
-                        prefix = rc_executor_append(executor_name)
-                        if prefix != "manual":
-                            print(prefix + executor_command)
-                        else:
-                            print("Manual executor_command found - gotta do it by hand")
+                
+                    executor_name = atomic.get('executor').get('name')
+                    # print(executor_name)
+                    executor_command = atomic.get('executor').get('command')
+                    # print(executor_command)
+                
+                    #executor_steps = atomic.get('executor').get('steps')
+                    #executor_input_arguments.input_file:
 
-                    elif platform == "macos":
-                        print("OS matched OSX...sending to the OSX vagrant")
-                        prefix = rc_executor_append(executor_name)
-                        if prefix != "manual":
-                            print(prefix + executor_command)
-                        else:
-                            print("Manual executor_command found - gotta do it by hand")
 
-                    elif platform == "linux":
-                        print("OS matched Linux...sending to the Linux vagrant")
-                        prefix = rc_executor_append(executor_name)
-                        if prefix != "manual":
-                            print(prefix + executor_command)
-                        else:
-                            print("Manual executor_command found - gotta do it by hand")
+                    supported_platforms = atomic.get('supported_platforms')
+                    # gonna have to for each here
+                    print(supported_platforms)
+                    for platform in supported_platforms:
 
-                    elif platform == "centos":
-                        print("OS matched Linux...sending to the Centos Linux vagrant")
-                        prefix = rc_executor_append(executor_name)
-                        if prefix != "manual":
-                            print(prefix + executor_command)
-                        else:
-                            print("Manual executor_command found - gotta do it by hand")
+                        if platform == "windows":
+                            print("OS matched Windows...sending to the windows vagrant")
+                            prefix = rc_executor_append(executor_name)
+                            if prefix != "manual":
+                                print(prefix + executor_command)
+                            else:
+                                print("Manual executor_command found - gotta do it by hand")
+                    
+                        elif platform == "osx":
+                            print("OS matched OSX...sending to the OSX vagrant")
+                            prefix = rc_executor_append(executor_name)
+                            if prefix != "manual":
+                                print(prefix + executor_command)
+                            else:
+                                print("Manual executor_command found - gotta do it by hand")
 
-                    elif platform == "ubuntu":
-                        print("OS matched Linux...sending to the Ubuntu Linux vagrant")
-                        prefix = rc_executor_append(executor_name)
-                        if prefix != "manual":
-                            print(prefix + executor_command)
-                        else:
-                            print("Manual executor_command found - gotta do it by hand")
+                        elif platform == "macos":
+                            print("OS matched OSX...sending to the OSX vagrant")
+                            prefix = rc_executor_append(executor_name)
+                            if prefix != "manual":
+                                print(prefix + executor_command)
+                            else:
+                                print("Manual executor_command found - gotta do it by hand")
 
-                    else:
-                        print("We received an unknown OS")
-                        sys.exit
-                print("\n")
-            '''
+                        elif platform == "linux":
+                            print("OS matched Linux...sending to the Linux vagrant")
+                            prefix = rc_executor_append(executor_name)
+                            if prefix != "manual":
+                                print(prefix + executor_command)
+                            else:
+                                print("Manual executor_command found - gotta do it by hand")
+
+                        elif platform == "centos":
+                            print("OS matched Linux...sending to the Centos Linux vagrant")
+                            prefix = rc_executor_append(executor_name)
+                            if prefix != "manual":
+                                print(prefix + executor_command)
+                            else:
+                                print("Manual executor_command found - gotta do it by hand")
+
+                        elif platform == "ubuntu":
+                            print("OS matched Linux...sending to the Ubuntu Linux vagrant")
+                            prefix = rc_executor_append(executor_name)
+                            if prefix != "manual":
+                                print(prefix + executor_command)
+                            else:
+                                print("Manual executor_command found - gotta do it by hand")
+
+                        else:
+                            print("We received an unknown OS")
+                            sys.exit
+                    print("\n")
+                elif name != TestName:
+                    next
+                else:
+                    print("########## ERROR ##########\nCould not find the test named: {} ! Check TestName value!".format(TestName))
+                    sys.exit()
+            
             for atomic in atomic_test:
 
 
@@ -431,7 +460,7 @@ def run_rc_atomictest(ioc_filename):
     except Exception as e:
         print(e)
 
-def parse_rc_yaml(ioc_filename):
+def parse_rc_yaml(ioc_filename, TestName):
     '''
     Parse Red Canary Atomic Testing format simulation file
     '''
@@ -441,7 +470,8 @@ def parse_rc_yaml(ioc_filename):
         atomics = yaml.load_all(open(ioc_filename,'r').read())
         start_log("Adversarial Simulation", "1.0")
 
-        run_rc_atomictest(ioc_filename)
+        #run_rc_atomictest(ioc_filename)
+        run_rc_atomictest(ioc_filename, TestName)
         
         close_log()
 
@@ -455,6 +485,7 @@ def main():
     parser = ArgumentParser(description="adversarial-simulation ")
     parser.add_argument("-f", "--simfile", action="store", default=None, required=False, dest="simfile", help="Path to simulation file you want to run")
     parser.add_argument("-rc", "--atomic", action="store", default=None, required=False, dest="atomic", help="Path to Atomic simulation file you want to run")
+    parser.add_argument("-N",  action="store", default=None, required=False, dest="TestName", help="Test Name ex. 'Data Compressed - nix'")
 
     args = parser.parse_args()
     config = ConfigParser.RawConfigParser()
@@ -498,7 +529,12 @@ def main():
         parse_yaml(args.simfile)
     elif args.atomic:
         print("Running Red Canary Atomic Testing simulation file")
-        parse_rc_yaml(args.atomic)
+        if args.atomic and args.TestName is None: #and args.rport is None:
+            parser.error("-rc/--atomic requires the -N (test name) argument.")
+        else:
+            TestName = args.TestName.strip()
+            print(TestName)
+            parse_rc_yaml(args.atomic, TestName)
 
 
 if __name__=='__main__':
